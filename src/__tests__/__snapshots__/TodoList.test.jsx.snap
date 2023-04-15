@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TodoList /> should test TaskList 1`] = `
+<div
+  className="todo-list"
+>
+  <CreateTaskInput
+    sendInputData={[Function]}
+  />
+  <ul
+    className="list"
+  />
+</div>
+`;
