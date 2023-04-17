@@ -2,9 +2,11 @@ import React, { useCallback, useEffect } from 'react';
 import './DetailsWeather.sass';
 import * as getApiWeather from '../../api-requests/get.wether';
 import LocationTown from './LocationTown';
+import DayStatus from './DayStatus';
+import WeatherCode from './WeatherCode';
 
 const DeatailsWeather = props => {
-  console.log(props);
+  console.log('DeatailsWeather ' + props.test);
   return (
     <>
       {/* <!--return--> */}
@@ -22,7 +24,7 @@ const DeatailsWeather = props => {
       </div>
       {/* <!--/return-->
               <!--location--> */}
-      <LocationTown />
+      <LocationTown test={props.test} />
       {/* <!--/location-->
               <!--title-name-weather--> */}
       <div className="detail__title-name-weather title-name-weather">
@@ -30,15 +32,7 @@ const DeatailsWeather = props => {
       </div>
       {/* <!--/title-name-weather-->
               <!--state-weather--> */}
-      <div className="detail__state-weather state-weather">
-        <div className="state-weather__img-box">
-          <img
-            src="./img/weathercode-82.png"
-            alt="weather-code"
-            className="state-weather__img"
-          />
-        </div>
-      </div>
+      <WeatherCode />
       {/* <!--/state-weather-->
               <!--temperature-main--> */}
       <div className="detail__temperature-main temperature-main">
@@ -55,11 +49,7 @@ const DeatailsWeather = props => {
       </div>
       {/* <!--/temperature-main-->
               <!--day-status--> */}
-      <div className="detail__day-status day-status">
-        <div className="day-status__box">
-          <h3 className="day-status__text">Today 20:00</h3>
-        </div>
-      </div>
+      <DayStatus />
       {/* <!--/day-status-->
               <!--other-indicators--> */}
       <div className="detail__other-indicators other-indicators">

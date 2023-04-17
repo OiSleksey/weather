@@ -51,6 +51,14 @@ const getDateCurrency = function () {
   dateInHtml.textContent = dateCurrency;
 
   const timeAndDateCurrency = `${timeIntl} ${dateCurrency}`;
+
+  const dataTimes = {
+    day: dayToday,
+    weekday: weekdayToday,
+    month: monthToday,
+    year: yearToday,
+  };
+  console.log(dataTimes);
   return timeAndDateCurrency;
 };
 //Currency date for wethear

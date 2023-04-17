@@ -23,19 +23,6 @@ export const weatherPositionName = namePosition => {
     },
   };
 };
-// export const displayTodoList = list => {
-//   const checkOnError = list.length === 0 ? [] : list;
-//   const taskList = checkOnError.map(({ _id, ...task }) => ({
-//     id: _id,
-//     ...task,
-//   }));
-//   return {
-//     type: TODO_LIST_GET,
-//     payload: {
-//       taskList,
-//     },
-//   };
-// };
 
 export const getLocationBrowser = coords => {
   return function (dispatch) {
@@ -47,10 +34,7 @@ export const getLocationBrowser = coords => {
 };
 
 export const getPositionName = (lat, lon) => {
-  console.log('getPositionName ' + lat, lon);
   return function (dispatch, getState) {
-    const newState = getState;
-    console.log(newState);
     getPosition(lat, lon).then(data => {
       console.log(data);
       dispatch(weatherPositionName(data));

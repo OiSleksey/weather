@@ -37,14 +37,14 @@ export const getTemperature = async function (lat, lon, dateCurrency) {
 };
 
 //Получение облачности
-export const getWeatherCode = async function (lat, lon, dateCurrency) {
+export const getWeatherCodeToday = async function (lat, lon, dateCurrency) {
   const responseWeathercode = await fetch(
     `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=weathercode`
   );
   const dataWeathercode = await responseWeathercode.json();
   //   weathercodeNow.textContent =
   //     dataWeathercode.hourly.weathercode[dateCurrency.substring(0, 2)];
-  console.log(dataWeathercode);
+  return dataWeathercode;
 };
 
 //Получение влажности

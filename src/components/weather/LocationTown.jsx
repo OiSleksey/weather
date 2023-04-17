@@ -6,16 +6,45 @@ import {
   getLocationBrowser,
 } from '../../redux/location/location.actions';
 
-let count = 0;
-
 const LocationTown = props => {
   ///
-
   useEffect(() => {
     props.getLocation();
-    console.log('useEffet');
-  }, [count]);
-  ///
+  }, []);
+  //
+  let placeName;
+
+  if (!props.location.namePosition || !props.location.namePosition.address) {
+    console.log('LocationTown Dont ' + props.test);
+    return (
+      <h3
+        onClick={() => {
+          console.log(props.location.namePosition);
+        }}
+      >
+        Dont namePosition
+      </h3>
+    );
+  }
+  if (
+    props.location.namePosition.address &&
+    props.location.namePosition.address.city
+  ) {
+    console.log('LocationTown city ' + props.test);
+    console.log('city');
+    placeName = props.location.namePosition.address.city;
+  } else {
+    console.log('LocationTown Village city' + props.test);
+    console.log('city');
+    placeName = props.location.namePosition.address.village;
+  }
+
+  // if (props.location.address?.city) {
+  //   placeName = props.location.address?.city;
+  //   console.log('village');
+  //   placeName = props.location.address?.city;
+  // }
+  ///.address.city
   return (
     <div className="detail__location location">
       <div className="location__img-box">
@@ -26,7 +55,7 @@ const LocationTown = props => {
         />
       </div>
       <div className="location__text-box">
-        <h3 className="location__text">{props.location.namePosition}</h3>
+        <h3 className="location__text">{placeName}</h3>
       </div>
     </div>
   );
@@ -41,4 +70,13 @@ const mapDispatch = {
   getLocation: getLocationBrowser,
 };
 
-export default connect(mapState, mapDispatch)(LocationTown);
+function propsAreEqual(prevProps, nextProps) {
+  const boolValue =
+    prevProps.location.namePosition === nextProps.location.namePosition;
+  return boolValue;
+}
+
+export default connect(
+  mapState,
+  mapDispatch
+)(React.memo(LocationTown, propsAreEqual));
