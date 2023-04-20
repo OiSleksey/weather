@@ -31,19 +31,25 @@ export const getLocation = async function () {
     };
     // console.log(position);
   } catch (error) {
-    console.error(error);
+    // console.error(error);
     console.log({
       lat: 50.448135102839025,
       lon: 30.53539719731239,
       realCoordinates: false,
     });
+    // return {
+    //   lat: 50.448135102839025,
+    //   lon: 30.53539719731239,
+    //   realCoordinates: false,
+    // };
     return {
-      lat: 50.448135102839025,
-      lon: 30.53539719731239,
+      lat: 70.6221817,
+      lon: 147.8955685,
       realCoordinates: false,
     };
   }
 };
+
 // export const coordinates = async function (lat, lon, bool) {
 //   // const position =
 //   // console.log(position);
@@ -82,9 +88,9 @@ export const getLocation = async function () {
 navigator.geolocation.getCurrentPosition(
   function (position) {
     //Текущие координаты
-    console.log('My location');
+    // console.log('My location');
     const { latitude, longitude } = position.coords;
-    console.log(latitude, longitude);
+    // console.log(latitude, longitude);
     // getPosition(latitude, longitude);
     // return coordinaes(latitude, longitude, true);t
     // return
@@ -97,7 +103,7 @@ navigator.geolocation.getCurrentPosition(
     // getWeather.getWindDirection(latitude, longitude, dateCurrency);
   },
   function () {
-    console.log('Kyiv');
+    // console.log('Kyiv');
     //Координаты киева
     // return coordinates(50.448135102839025, 30.53539719731239, false);
     // getWeather.getTemperature(

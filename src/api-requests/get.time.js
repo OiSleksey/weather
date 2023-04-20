@@ -5,39 +5,22 @@ const weekdayWeather = document.querySelector('.news-weather__weekday');
 // export const secondsInterval = setInterval(function () {
 //   getDateCurrency();
 // }, 1000);
-const weekDayToday = value => {
-  switch (value) {
-    case 0: {
-      return 'Su';
-    }
-    case 1: {
-      return 'Mo';
-    }
-    case 2: {
-      return 'Tu';
-    }
-    case 3: {
-      return 'We';
-    }
-    case 4: {
-      return 'Th';
-    }
-    case 5: {
-      return 'Fr';
-    }
-    case 6: {
-      return 'St';
-    }
-  }
-};
 export const getDateCurrency = function () {
   const dateToday = new Date();
+  const nextSevenDays = [];
+  const nextSevenDaysMonth = [];
+  for (let i = 0; i <= 6; i++) {
+    const nextDate = new Date(dateToday);
+    nextDate.setDate(dateToday.getDate() + i);
+    nextSevenDays.push(nextDate.getDate());
+    nextSevenDaysMonth.push(nextDate.getMonth() + 1);
+  }
   const minute = dateToday.getMinutes() + '';
   const hour = dateToday.getHours() + '';
   const day = dateToday.getDate() + '';
   const month = dateToday.getMonth() + 1 + '';
   const year = dateToday.getFullYear() + '';
-  const weekday = weekDayToday(dateToday.getDay());
+  const weekday = dateToday.getDay();
 
   // const dateToday = new Date();
   // const hourToday = dateToday.getHours();
@@ -66,6 +49,8 @@ export const getDateCurrency = function () {
     weekday,
     month,
     year,
+    nextSevenDays,
+    nextSevenDaysMonth,
   };
   console.log(dataTimes);
   return dataTimes;

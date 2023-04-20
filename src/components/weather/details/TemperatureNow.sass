@@ -1,0 +1,14 @@
+@import '../mixins.sass'
+.temperature-main
+    display: grid
+    grid-template-columns: 1.5fr 0.7fr
+    &__quantity
+        @include flex-Vcenter-Hend
+    &__text
+        margin-right: 1rem
+        font-size: 7rem
+    &__img-box
+        display: flex
+        align-items: center
+    &__img
+        width: 100%

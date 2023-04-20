@@ -1,17 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, memo } from 'react';
 import { connect } from 'react-redux';
-import { getTimeDateNow } from '../../redux/time-date/time-date.actions';
+import './DetailsWeather.sass';
+import './DayStatus.sass';
+import { getTimeDateNow } from '../../../redux/time-date/time-date.actions';
 
 const DayStatus = props => {
   useEffect(() => {
-    console.log('DayStatus Effect');
+    // console.log('DayStatus Effect');
     props.getTimeDateNow();
   }, []);
-  const displayDayTime = `Today ${props.timeDateNow.hour}:00`;
-  if (!displayDayTime) {
-    return <h1>Bad</h1>;
+  if (!props.timeDateNow.hour) {
+    return <h3>Loading...</h3>;
   }
-  console.log(props);
+  const displayDayTime = `Today ${props.timeDateNow.hour}:00`;
+  // console.log(props);
   return (
     <>
       <div className="detail__day-status day-status">
@@ -34,4 +36,10 @@ const mapDispatch = {
   getTimeDateNow: getTimeDateNow,
 };
 
+// function propsAreEqual(prevProps, nextProps) {
+//   const boolValue =
+//     prevProps.location.namePosition === nextProps.location.namePosition;
+//   return boolValue;
+// }
 export default connect(mapState, mapDispatch)(DayStatus);
+// export default connect(mapState, mapDispatch)(memo(DayStatus, propsAreEqual));

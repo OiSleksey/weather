@@ -19,7 +19,8 @@ export const getTemperature = async function (lat, lon, dateCurrency) {
     `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m`
   );
   const dataTemperature = await responseTemperature.json();
-  console.log(dataTemperature);
+
+  return dataTemperature;
   const temperatureAllDaySort = dataTemperature.hourly.temperature_2m
     .slice(0, 24)
     .sort((x, y) => x - y);
@@ -37,7 +38,7 @@ export const getTemperature = async function (lat, lon, dateCurrency) {
 };
 
 //Получение облачности
-export const getWeatherCodeToday = async function (lat, lon, dateCurrency) {
+export const getWeatherCode = async function (lat, lon, dateCurrency) {
   const responseWeathercode = await fetch(
     `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=weathercode`
   );
@@ -53,7 +54,7 @@ export const getRelativeHumidity = async function (lat, lon, dateCurrency) {
     `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=relativehumidity_2m`
   );
   const dataRelativeHumidity = await responseRelativeHumidity.json();
-  console.log(dataRelativeHumidity);
+  return dataRelativeHumidity;
 };
 
 //Получение давления Делим полученые данные на 1.33
@@ -62,7 +63,7 @@ export const getPressure = async function (lat, lon, dateCurrency) {
     `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=pressure_msl`
   );
   const dataPressure = await responsePressure.json();
-  console.log(dataPressure);
+  return dataPressure;
 };
 
 // Получение скорости ветра км/ч для м/с разделить на 3.6
@@ -71,7 +72,7 @@ export const getWindSpeed = async function (lat, lon, dateCurrency) {
     `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=windspeed_10m`
   );
   const dataWindSpeed = await responseWindSpeed.json();
-  console.log(dataWindSpeed);
+  return dataWindSpeed;
 };
 //Получение Направление ветра в градусач 0-360Юг->Се, 90Во->Зап, 180Се->Юг, 270За->Во.
 export const getWindDirection = async function (lat, lon, dateCurrency) {
@@ -79,5 +80,5 @@ export const getWindDirection = async function (lat, lon, dateCurrency) {
     `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=winddirection_10m`
   );
   const dataWindDirection = await responseWindDirection.json();
-  console.log(dataWindDirection);
+  return dataWindDirection;
 };

@@ -7,14 +7,15 @@ import {
 // import { applyMiddleware, compose } from 'react-redux';
 import thunk from 'redux-thunk';
 // import { tasksReducer } from '../tasks/tasks.reducer';
-import { locationReducer } from './location/location.reducer';
+import { locationWeatherReducer } from './location-weather/location-weather.reducer';
 import { timeDateNowReducer } from './time-date/time-date.reducer';
-import { weatherCodeReducer } from './weather-code/weather-code.reducer';
+// import { weatherCodeReducer } from './weather-code/weather-code.reducer';
 
 const allReducers = combineReducers({
-  location: locationReducer,
+  location: locationWeatherReducer,
+  weatherData: locationWeatherReducer,
   timeDateNow: timeDateNowReducer,
-  weatherCode: weatherCodeReducer,
+  // weatherCode: weatherCodeReducer,
   // tasks: tasksReducer,
 });
 

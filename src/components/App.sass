@@ -1,0 +1,37 @@
+
+*
+    box-sizing: border-box
+    font-size: 62.7%
+
+body
+    background-color: blue
+    width: 100%
+
+    overflow: hidden
+
+.container__main
+    background: yellow
+    font-size: 2rem
+    height: 100vh
+    display: flex
+    justify-content: center
+    align-items: center
+
+.weather
+    width: 77.9rem
+    height: 43.4rem
+    background: white
+    display: grid
+    grid-template-columns: repeat(19,1fr)
+    grid-template-rows: repeat(14,1fr)
+    &__detail
+        grid-column: 1/17
+        grid-row: 1/10
+    &__week
+        background: green
+        grid-column: 17/-1
+        grid-row: 1/-1
+    &__times-of-day
+        background: pink
+        grid-column: 1/17
+        grid-row: 10/-1
