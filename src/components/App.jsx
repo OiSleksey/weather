@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 import store from '../redux/store';
-import DetailsWeather from './weather/details/DetailsWeather';
-import WeekWeather from './weather/week/WeekWeather';
-import TimesOfDay from './weather/times-of-day/TimesOfDay';
+import DetailsWeather from './Weather/DetailsWeather/DetailsWeather';
+import PartsOfWeek from './Weather/PartsOfWeek/PartsOfWeek';
+import PartsOfDay from './Weather/PartsOfDay/PartsOfDay';
 import './App.sass';
 // import '../sass/style';
 
@@ -28,8 +28,8 @@ function App() {
             </div>
             <div className="weather">
               <DetailsWeather test={count} />
-              <WeekWeather />
-              <TimesOfDay />
+              <PartsOfWeek />
+              <PartsOfDay />
             </div>
           </div>
         </div>
