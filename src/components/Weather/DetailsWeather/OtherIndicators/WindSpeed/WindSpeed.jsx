@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../OtherIndicators.sass';
 import './WindSpeed.sass';
-import { weatherWindSpeedSelector } from '../../../../../redux/selectors/details-weather.selector';
+import { weatherWindSpeedSelector } from '../../../../../redux/selectors/detailsWeather.selectors/detailsDataWeather.selector';
 
 const WindSpeed = ({ windSpeed }) => {
   if (!windSpeed) {

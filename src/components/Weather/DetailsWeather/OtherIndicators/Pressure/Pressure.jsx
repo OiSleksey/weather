@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { weatherPressureSelector } from '../../../../../redux/selectors/details-weather.selector';
+import { weatherPressureSelector } from '../../../../../redux/selectors/detailsWeather.selectors/detailsDataWeather.selector';
 import '../OtherIndicators.sass';
 import './Pressure.sass';
 // details-weather.selector

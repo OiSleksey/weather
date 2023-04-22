@@ -3,7 +3,7 @@ import {
   WEATHER_PART_DAY_MORNING_SELECTED,
   WEATHER_PART_DAY_DAY_SELECTED,
   WEATHER_PART_DAY_EVENING_SELECTED,
-} from '../actions/part-weather.actions';
+} from '../actions/partsDayWeather.actions';
 
 const initialState = {
   selectedPartDay: [false, false, false, false],

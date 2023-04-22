@@ -6,7 +6,7 @@ import {
   WEATHER_WEEK_FIFTH_SELECTED,
   WEATHER_WEEK_SIXTH_SELECTED,
   WEATHER_WEEK_SEVENTH_SELECTED,
-} from '../actions/week-weather.actions';
+} from '../actions/partsWeekWeather.actions';
 
 const initialState = {
   selectedWeekday: [true, false, false, false, false, false, false],

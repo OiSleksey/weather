@@ -2,8 +2,7 @@ import React, { useEffect, memo } from 'react';
 import { connect } from 'react-redux';
 import '../DetailsWeather.sass';
 import './WeatherCode.sass';
-import { weatherCodeSelector } from '../../../../redux/selectors/details-weather.selector';
-
+import { weatherCodeSelector } from '../../../../redux/selectors/detailsWeather.selectors/detailsDataWeather.selector';
 const WeatherCode = props => {
   // console.log(props.weatherData);
   if (!props.weatherData) {

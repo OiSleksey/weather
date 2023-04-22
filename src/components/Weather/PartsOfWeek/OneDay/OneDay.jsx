@@ -4,7 +4,7 @@ import './OneDay.sass';
 import PropTypes from 'prop-types';
 
 const OneDay = ({
-  dayNameAndData,
+  dateData,
   weatherData,
   setSelectedWeekday,
   selectedWeekday,
@@ -12,7 +12,7 @@ const OneDay = ({
   const selectedStyle = selectedWeekday
     ? 'week__day one-day day-first one-day_active'
     : 'week__day one-day day-first';
-  if (!dayNameAndData || !weatherData)
+  if (!dateData || !weatherData)
     return (
       <div
         onClick={() => {
@@ -34,9 +34,9 @@ const OneDay = ({
         </div>
       </div>
     );
-  const weekday = dayNameAndData.weekday;
-  const date = dayNameAndData.day;
-  const month = dayNameAndData.month;
+  const weekday = dateData.weekdayName;
+  const date = dateData.day;
+  const month = dateData.month;
   const minTemperature = weatherData.minTemperature;
   const maxTemperature = weatherData.maxTemperature;
   return (

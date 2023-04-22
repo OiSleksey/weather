@@ -1,17 +1,14 @@
 import { connect } from 'react-redux';
-import React from 'react';
 import PartOne from '../PartOne/PartOne';
-import { nightTemperatureWeatherCodeSelector } from '../../../../redux/selectors/part-weatherdata.selector';
-import { nightPartDaySelector } from '../../../../redux/selectors/part-times-weather.selector';
-import { weatherPartNightSelected } from '../../../../redux/actions/part-weather.actions';
-import { nightPartSelected } from '../../../../redux/selectors/part-selected-weather.selector';
+import { weatherPartNightSelected } from '../../../../redux/actions/partsDayWeather.actions';
+import { nightPartDaySelector } from '../../../../redux/selectors/partsOfDay.selectors/namePartsOfDay.selector';
+import { nightTemperatureWeatherCodeSelector } from '../../../../redux/selectors/partsOfDay.selectors/weatherPartsOfDay.selector';
+import { nightPartSelected } from '../../../../redux/selectors/partsOfDay.selectors/selectedPartOfDay.selector';
 const mapState = state => {
   return {
     partDay: nightPartDaySelector(state),
     partWeather: nightTemperatureWeatherCodeSelector(state),
     partSelected: nightPartSelected(state),
-    // weatherCode: state,
-    // temperature: state,
   };
 };
 

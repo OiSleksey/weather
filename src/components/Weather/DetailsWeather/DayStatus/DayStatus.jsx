@@ -2,7 +2,7 @@ import React, { useEffect, memo } from 'react';
 import { connect } from 'react-redux';
 import '../DetailsWeather.sass';
 import './DayStatus.sass';
-import { getTimeDateNow } from '../../../../redux/actions/time-date.actions';
+import { getTimeDateNow } from '../../../../redux/actions/timeData.actions';
 
 const DayStatus = props => {
   useEffect(() => {

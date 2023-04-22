@@ -1,10 +1,3 @@
-// import * as dataFetch from '../scripts/dataBaseRequsts';
-// import { taskListSelector } from './tasks.selector';
-import { getLocation, getPosition } from '../../api-requests/get.location';
-import * as fetchWeather from '../../api-requests/get.wether';
-
-// getWeatherCodeToday,
-// getTemperature,
 export const WEATHER_WEEK_FIRST_SELECTED = 'WEATHER_WEEK_FIRST_SELECTED';
 export const WEATHER_WEEK_SECOND_SELECTED = 'WEATHER_WEEK_SECOND_SELECTED';
 export const WEATHER_WEEK_THIRD_SELECTED = 'WEATHER_WEEK_THIRD_SELECTED';

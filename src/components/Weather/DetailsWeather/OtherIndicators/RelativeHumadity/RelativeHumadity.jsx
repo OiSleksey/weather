@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { weatherRelativeHumaditySelector } from '../../../../../redux/selectors/details-weather.selector';
+import { weatherRelativeHumiditySelector } from '../../../../../redux/selectors/detailsWeather.selectors/detailsDataWeather.selector';
 import '../OtherIndicators.sass';
 import './RelativeHumadity.sass';
 
@@ -43,7 +43,7 @@ const RelativeHumadity = ({ relativeHumadity }) => {
 
 const mapState = state => {
   return {
-    relativeHumadity: weatherRelativeHumaditySelector(state),
+    relativeHumadity: weatherRelativeHumiditySelector(state),
   };
 };
 

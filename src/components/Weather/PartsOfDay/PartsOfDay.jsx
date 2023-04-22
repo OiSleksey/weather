@@ -6,7 +6,7 @@ import NightPart from './NightPart/NightPart';
 import MorningPart from './MorningPart/MorningPart';
 import DayPart from './DayPart/DayPart';
 import EveningPart from './EveningPart/EveningPart';
-import { getStartPartDay } from '../../../redux/actions/part-weather.actions';
+import { getStartPartsDay } from '../../../redux/middleware/partsDayThunk';
 
 const PartsOfDay = props => {
   useEffect(() => {
@@ -23,7 +23,7 @@ const PartsOfDay = props => {
 };
 
 const mapDispatch = {
-  getStartPartDays: getStartPartDay,
+  getStartPartDays: getStartPartsDay,
 };
 
 export default connect(null, mapDispatch)(PartsOfDay);

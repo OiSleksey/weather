@@ -7,14 +7,18 @@ const weekdayWeather = document.querySelector('.news-weather__weekday');
 // }, 1000);
 export const getDateCurrency = function () {
   const dateToday = new Date();
-  const nextSevenDays = [];
-  const nextSevenDaysMonth = [];
+  const sevenDaysDate = [];
+  const sevenDaysMonth = [];
+  const sevenDaysWeekday = [];
+
   for (let i = 0; i <= 6; i++) {
     const nextDate = new Date(dateToday);
     nextDate.setDate(dateToday.getDate() + i);
-    nextSevenDays.push(nextDate.getDate());
-    nextSevenDaysMonth.push(nextDate.getMonth() + 1);
+    sevenDaysDate.push(nextDate.getDate());
+    sevenDaysMonth.push(nextDate.getMonth() + 1);
+    sevenDaysWeekday.push(nextDate.getDay());
   }
+
   const minute = dateToday.getMinutes() + '';
   const hour = dateToday.getHours() + '';
   const day = dateToday.getDate() + '';
@@ -49,8 +53,9 @@ export const getDateCurrency = function () {
     weekday,
     month,
     year,
-    nextSevenDays,
-    nextSevenDaysMonth,
+    sevenDaysDate,
+    sevenDaysMonth,
+    sevenDaysWeekday,
   };
   console.log(dataTimes);
   return dataTimes;

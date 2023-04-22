@@ -1,6 +1,5 @@
-import { getDateCurrency } from '../../api-requests/get.time';
+import { getDateCurrency } from '../../api-requests/getTime';
 
-// import * as partActions from '../part-weather/part-weather.actions';
 export const TIME_DATE_NOW = 'TIME_DATE_NOW';
 
 export const timeDateNow = data => {

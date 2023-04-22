@@ -1,15 +1,15 @@
 import React from 'react';
 import OneDay from '../OneDay/OneDay';
 import { connect } from 'react-redux';
-import { secondDayDateSelector } from '../../../../redux/selectors/days-weather.selector';
-import { secondDayDataWeatherSelector } from '../../../../redux/selectors/temperature-weather.selector';
-import { secondDaySelectedSelector } from '../../../../redux/selectors/selected-weekday.selector';
-import { weatherWeekSecondSelected } from '../../../../redux/actions/week-weather.actions';
+import { weatherWeekSecondSelected } from '../../../../redux/actions/partsWeekWeather.actions';
+import { secondDayDateSelector } from '../../../../redux/selectors/daysOfWeek.selectors/dateDaysOfWeek.selector';
+import { secondDayDataWeatherSelector } from '../../../../redux/selectors/daysOfWeek.selectors/weatherDaysOfWeek.selector';
+import { secondDaySelectedSelector } from '../../../../redux/selectors/daysOfWeek.selectors/selectedDayOfWeek.selector';
 
 //
 const mapState = state => {
   return {
-    dayNameAndData: secondDayDateSelector(state),
+    dateData: secondDayDateSelector(state),
     weatherData: secondDayDataWeatherSelector(state),
     selectedWeekday: secondDaySelectedSelector(state),
   };

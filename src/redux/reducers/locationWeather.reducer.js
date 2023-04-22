@@ -3,11 +3,11 @@ import {
   WEATHER_POSITION_NAME,
   WEATHER_CODE,
   WEATHER_TEMPERATURE,
-  WEATHER_RELATIVE_HUMADITY,
+  WEATHER_RELATIVE_HUMIDITY,
   WEATHER_PRESSURE,
   WEATHER_WIND_SPEED,
   WEATHER_WIND_DIRECTION,
-} from '../actions/location-weather.actions';
+} from '../actions/locationWeather.actions';
 
 const initialState = {};
 
@@ -37,10 +37,10 @@ export const locationWeatherReducer = (state = initialState, action) => {
         temperature: action.payload.temperature,
       };
     }
-    case WEATHER_RELATIVE_HUMADITY: {
+    case WEATHER_RELATIVE_HUMIDITY: {
       return {
         ...state,
-        relativeHumadity: action.payload.relativeHumadity,
+        relativeHumidity: action.payload.relativeHumidity,
       };
     }
     case WEATHER_PRESSURE: {

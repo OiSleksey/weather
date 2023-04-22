@@ -1,4 +1,4 @@
-import { TIME_DATE_NOW } from '../actions/time-date.actions';
+import { TIME_DATE_NOW } from '../actions/timeData.actions';
 
 const initialState = {};
 

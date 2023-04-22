@@ -1,5 +1,5 @@
-import * as getWeather from './get.wether';
-import { dateCurrency } from './get.time';
+import * as getWeather from './getWether';
+import { dateCurrency } from './getTime';
 
 //Получение города
 export const getPosition = async function (lat, lng) {
@@ -19,11 +19,11 @@ export const getLocation = async function () {
     const position = await new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(resolve, reject);
     });
-    console.log({
-      lat: position.coords.latitude,
-      lon: position.coords.longitude,
-      realCoordinates: true,
-    });
+    // console.log({
+    //   lat: position.coords.latitude,
+    //   lon: position.coords.longitude,
+    //   realCoordinates: true,
+    // });
     return {
       lat: position.coords.latitude,
       lon: position.coords.longitude,
@@ -32,11 +32,11 @@ export const getLocation = async function () {
     // console.log(position);
   } catch (error) {
     // console.error(error);
-    console.log({
-      lat: 50.448135102839025,
-      lon: 30.53539719731239,
-      realCoordinates: false,
-    });
+    // console.log({
+    //   lat: 50.448135102839025,
+    //   lon: 30.53539719731239,
+    //   realCoordinates: false,
+    // });
     // return {
     //   lat: 50.448135102839025,
     //   lon: 30.53539719731239,

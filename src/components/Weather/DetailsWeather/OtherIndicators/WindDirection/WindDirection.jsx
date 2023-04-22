@@ -1,7 +1,7 @@
 import React from 'react';
 import '../OtherIndicators.sass';
 import './WindDirection.sass';
-import { weatherWindDirectionSelector } from '../../../../../redux/selectors/details-weather.selector';
+import { weatherWindDirectionSelector } from '../../../../../redux/selectors/detailsWeather.selectors/detailsDataWeather.selector';
 import { connect } from 'react-redux';
 
 const WindDirection = ({ windDirection }) => {

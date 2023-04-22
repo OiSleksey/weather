@@ -1,11 +1,11 @@
 import React, { useEffect, memo } from 'react';
 import { connect } from 'react-redux';
-import { weatherTemperatureNowSelector } from '../../../../redux/selectors/details-weather.selector';
+import { weatherTemperatureNowSelector } from '../../../../redux/selectors/detailsWeather.selectors/detailsDataWeather.selector';
 import '../DetailsWeather.sass';
 import './TemperatureNow.sass';
 
 const TemperatureNow = props => {
-  if (!props.temperature) {
+  if (!props) {
     return (
       <div className="detail__temperature-main temperature-main">
         <div className="temperature-main__quantity">

@@ -2,16 +2,13 @@ import React, { useEffect, memo } from 'react';
 import '../DetailsWeather.sass';
 import './LocationTown.sass';
 import { connect } from 'react-redux';
-import { getLocationBrowser } from '../../../../redux/actions/location-weather.actions';
-import {
-  locationSelector,
-  namePositionSelector,
-} from '../../../../redux/selectors/location-weather.selector';
+import { getLocationDispatchWeather } from '../../../../redux/middleware/weatherThunk';
+import { namePositionSelector } from '../../../../redux/selectors/locationName.selectors/locationName.selector';
 
-const LocationTown = ({ location, namePosition, getLocation }) => {
+const LocationTown = ({ namePosition, getLocationWeather }) => {
   ///
   useEffect(() => {
-    getLocation();
+    getLocationWeather();
   }, []);
   if (!namePosition) {
     return (
@@ -46,18 +43,17 @@ const LocationTown = ({ location, namePosition, getLocation }) => {
 };
 const mapState = state => {
   return {
-    location: locationSelector(state),
+    // location: locationSelector(state),
     namePosition: namePositionSelector(state),
   };
 };
 
 const mapDispatch = {
-  getLocation: getLocationBrowser,
+  getLocationWeather: getLocationDispatchWeather,
 };
 
 function propsAreEqual(prevProps, nextProps) {
-  const boolValue =
-    prevProps.location.namePosition === nextProps.location.namePosition;
+  const boolValue = prevProps.namePosition === nextProps.namePosition;
   return boolValue;
 }
 
