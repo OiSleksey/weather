@@ -62,13 +62,13 @@ const getWeatherCodeOfDay = (state, numberDay) => {
 
 export const firstDayDataWeatherSelector = state => {
   if (!state.weatherData || !state.weatherData.temperature) return null;
+
   const firstDayTemperature = getMinMaxTemperatureOfDay(state, 0);
   const firstDayWeatherCode = getWeatherCodeOfDay(state, 0);
   const firstDayData = {
     ...firstDayTemperature,
     weatherCode: firstDayWeatherCode,
   };
-
   return firstDayData;
 };
 export const secondDayDataWeatherSelector = state => {

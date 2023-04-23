@@ -4,6 +4,7 @@ import DayStatus from './DayStatus/DayStatus';
 import WeatherCode from './WeatherCode/WeatherCode';
 import TemperatureNow from './TemperatureNow/TemperatureNow';
 import OtherIndicators from './OtherIndicators/OtherIndicators';
+import ToggleWeather from './ToggleWeather/ToggleWeather';
 import '../../../components/App.sass';
 import './DetailsWeather.sass';
 
@@ -25,6 +26,7 @@ const DeatailsWeather = props => {
       <TemperatureNow />
       <DayStatus />
       <OtherIndicators />
+      <ToggleWeather />
     </div>
   );
 };

@@ -21,7 +21,12 @@ const OneDay = ({
         }}
         className={selectedStyle}
       >
-        <div className="one-day__img-box day-first__img-box">
+        <div
+          className="one-day__img-box day-first__img-box"
+          onClick={() => {
+            console.log(dateData, weatherData);
+          }}
+        >
           <h6>Loading...</h6>
         </div>
         <div className="day-first__day one-day__data-box data-box">

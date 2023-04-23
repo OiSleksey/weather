@@ -1,0 +1,27 @@
+@import '../../../../sass/variables/colors.sass'
+@import '../../../../sass/variables/mixins.sass'
+.hour
+    display: grid
+    grid-template-rows: repeat(4,1fr)
+    outline: 1px solid black
+    padding: 0.4rem
+    cursor: pointer
+    background: $part-unselected-background-color
+    &__times-box
+        grid-row: 1/2
+        @include flex-Vcenter-Hcenter
+    &__times
+        margin: 0
+    &__img-box
+        grid-row: 2/4
+        @include flex-Vcenter-Hcenter
+        margin-bottom: 0.3rem
+    &__img
+        width: 60%
+    &__temperature-box
+        grid-row: 4/5
+        @include flex-Vend-Hcenter
+    &__temperature
+        margin: 0
+    &_active
+        background: $part-selected-background-color

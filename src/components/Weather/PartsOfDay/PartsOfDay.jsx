@@ -13,7 +13,7 @@ const PartsOfDay = props => {
     props.getStartPartDays();
   });
   return (
-    <div className="weather__times-of-day times-of-day">
+    <div className="weather__parts-of-day parts-of-day">
       <NightPart />
       <MorningPart />
       <DayPart />

@@ -11,9 +11,13 @@ import { locationWeatherReducer } from './reducers/locationWeather.reducer';
 import { timeDateNowReducer } from './reducers/timeData.reducer';
 import { selectedWeekdayReducer } from './reducers/partsWeekWeather.reducer';
 import { selectedPartDayReducer } from './reducers/partsDayWeather.reducer';
+import { toggleTimesOfDayReducer } from './reducers/toggleTimesOfDay.reducer';
+import { selectedHourOfDayReducer } from './reducers/hoursDaysWeather.reducer';
 // import { weatherCodeReducer } from './weather-code/weather-code.reducer';
 
 const allReducers = combineReducers({
+  hourWeather: selectedHourOfDayReducer,
+  toggleTimes: toggleTimesOfDayReducer,
   weatherData: locationWeatherReducer,
   timeDateNow: timeDateNowReducer,
   weekWeather: selectedWeekdayReducer,

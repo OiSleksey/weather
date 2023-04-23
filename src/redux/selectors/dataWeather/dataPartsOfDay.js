@@ -1,14 +1,5 @@
 import * as dataDayOfWeek from './dataDayOfWeek';
 
-// console.log(dataDayOfWeek.getArrayTemperatureDay(state, 0));
-// console.log(dataDayOfWeek.getArrayWeatherCodeDay(state, 0));
-
-// console.log(dataDayOfWeek.getArrayPressureDay(state, 0));
-// console.log(dataDayOfWeek.getArrayWindSpeedDay(state, 0));
-// console.log(dataDayOfWeek.getArrayWindDirectionDay(state, 0));
-// console.log(dataDayOfWeek.getDataDayMonthNameNumberOfWeek(state, 0));
-// console.log(dataDayOfWeek.getArrayRelativeHumsdityDay(state, 0));
-
 // (Передаем номер чвсти дня от 0 до 3) => Получение обьекта с именем Части дня и и часом
 const getPartDayNameHour = value => {
   const partDayName = ['Night', 'Morning', 'Day', 'Evening'];
@@ -27,13 +18,6 @@ const getDataPartDay = (arrayData, requiredPart) => {
   const requiredValue = arrayData[partDataTimes.partTime];
   return requiredValue;
 };
-// console.log(dataDayOfWeek.getTemperaturePartDay(state, 0));
-// console.log(dataDayOfWeek.getWeatherCodePartDay(state, 0));
-// console.log(dataDayOfWeek.getPressurePartDay(state, 0));
-// console.log(dataDayOfWeek.getWindSpeedPartDay(state, 0));
-// console.log(dataDayOfWeek.getWindDirectionPartDay(state, 0));
-// console.log(dataDayOfWeek.getWindRelativeHumidityPartDay(state, 0));
-// console.log(dataDayOfWeek.getDataDayMonthNameNumberPartDay(state, 0));
 
 export const getTemperaturePartDay = (state, requiredDay, requiredPart) => {
   const ArrayTemperatureDay = dataDayOfWeek.getArrayTemperatureDay(

@@ -18,21 +18,21 @@ export const weatherCodeSelector = state => {
 };
 
 export const weatherTemperatureNowSelector = state => {
-  if (!state.weatherData.temperature) return null;
+  if (!state.weatherData || !state.weatherData.temperature) return null;
   const selectedHour = getIndexSelectedHour(state.partWeather.selectedPartDay);
   const weatherData = getDataRequiredHourSelector(state, selectedHour);
   return Math.ceil(weatherData.temperature);
 };
 
 export const weatherRelativeHumiditySelector = state => {
-  if (!state.weatherData.relativeHumidity) return null;
+  if (!state.weatherData || !state.weatherData.relativeHumidity) return null;
   const selectedHour = getIndexSelectedHour(state.partWeather.selectedPartDay);
   const weatherData = getDataRequiredHourSelector(state, selectedHour);
   return weatherData.relativeHumidity;
 };
 
 export const weatherWindSpeedSelector = state => {
-  if (!state.weatherData.windSpeed) return null;
+  if (!state.weatherData || !state.weatherData.windSpeed) return null;
   const selectedHour = getIndexSelectedHour(state.partWeather.selectedPartDay);
   const weatherData = getDataRequiredHourSelector(state, selectedHour);
   const windSpeed = Math.round(weatherData.windSpeed / 3.6);
@@ -40,7 +40,7 @@ export const weatherWindSpeedSelector = state => {
 };
 
 export const weatherWindDirectionSelector = state => {
-  if (!state.weatherData.windDirection) return null;
+  if (!state.weatherData || !state.weatherData.windDirection) return null;
   const selectedHour = getIndexSelectedHour(state.partWeather.selectedPartDay);
   const weatherData = getDataRequiredHourSelector(state, selectedHour);
   const windDirection = weatherData.windDirection;
@@ -84,7 +84,7 @@ export const weatherWindDirectionSelector = state => {
 };
 
 export const weatherPressureSelector = state => {
-  if (!state.weatherData.pressure) return null;
+  if (!state.weatherData || !state.weatherData.pressure) return null;
   const selectedHour = getIndexSelectedHour(state.partWeather.selectedPartDay);
   const weatherData = getDataRequiredHourSelector(state, selectedHour);
   const pressure = Math.round(weatherData.pressure / 1.3);

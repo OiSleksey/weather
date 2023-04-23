@@ -1,11 +1,11 @@
 const weatherDataIntervalsDays = [
   [0, 24],
-  [25, 48],
-  [49, 72],
-  [73, 96],
-  [97, 120],
-  [121, 144],
-  [145, 168],
+  [24, 48],
+  [48, 72],
+  [72, 96],
+  [96, 120],
+  [120, 144],
+  [144, 168],
 ];
 
 //получение (массив где один день, массив интервалов)=>массив нужного интервала к примеру [0,24]
@@ -98,5 +98,6 @@ export const getDataDayMonthNameNumberOfWeek = (state, requiredDay) => {
     day: requiredDate,
     month: requiredMonth,
   };
+  // console.log(dataDate);
   return dataDate;
 };

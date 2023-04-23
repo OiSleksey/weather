@@ -17,8 +17,8 @@ const PartOne = ({
   //   props.getTimeDateNow();
   // }, []);
   const styleActive = partSelected
-    ? 'times-of-day__part-one night part-one part-one_active'
-    : 'times-of-day__part-one night part-one';
+    ? 'parts-of-day__part-one night part-one part-one_active'
+    : 'parts-of-day__part-one night part-one';
   if (!partDay || !partWeather)
     return (
       <div

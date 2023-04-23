@@ -24,7 +24,7 @@ export const getDateCurrency = function () {
   const day = dateToday.getDate() + '';
   const month = dateToday.getMonth() + 1 + '';
   const year = dateToday.getFullYear() + '';
-  const weekday = dateToday.getDay();
+  const weekday = dateToday.getDay() + '';
 
   // const dateToday = new Date();
   // const hourToday = dateToday.getHours();
