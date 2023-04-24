@@ -18,7 +18,7 @@ const DeatailsWeather = props => {
           <img src="./img/return.png" alt="return" className="return__img" />
         </div>
       </div>
-      <LocationTown test={props.test} />
+      <LocationTown />
       <div className="detail__title-name-weather title-name-weather">
         <h2 className="title-name-weather__text">WEATHER</h2>
       </div>

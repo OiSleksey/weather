@@ -4,8 +4,8 @@ import { weatherTemperatureSelector } from '../../../../redux/selectors/detailsW
 import '../DetailsWeather.sass';
 import './TemperatureNow.sass';
 
-const TemperatureNow = props => {
-  if (!props) {
+const TemperatureNow = ({ temperature }) => {
+  if (!temperature) {
     return (
       <div className="detail__temperature-main temperature-main">
         <div className="temperature-main__quantity">
@@ -25,7 +25,7 @@ const TemperatureNow = props => {
   return (
     <div className="detail__temperature-main temperature-main">
       <div className="temperature-main__quantity">
-        <h1 className="temperature-main__text">{props.temperature}</h1>
+        <h1 className="temperature-main__text">{temperature}</h1>
       </div>
       <div className="temperature-main__img-box">
         <img

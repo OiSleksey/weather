@@ -10,7 +10,7 @@ import Hour from './Hour/Hour';
 // import { getStartPartsDay } from '../../../redux/middleware/partsDayThunk';
 import { getWeatherDataSelector } from '../../../redux/selectors/hoursOfDay.selectors/weatherHoursOfDay.selector';
 
-const HoursOfDay = ({ dataWeather }) => {
+const HoursOfDay = ({ dataWeather, sendRefHour }) => {
   if (!dataWeather) return null;
   const arrTemperature = dataWeather.temperature;
   const arrWeatherCode = dataWeather.weatherCode;
@@ -19,13 +19,23 @@ const HoursOfDay = ({ dataWeather }) => {
     element,
     arrWeatherCode[index],
   ]);
+  const hourTest = 0;
   // useEffect(() => {
   //   props.getStartPartDays();
   // });
+  // onStartActionHour = data => {
+  //   // startActionHour();
+  //   console.log(data);
+  // };
   return (
     <div className="weather__hours-of-day hours-of-day">
       {arrTemperatureWeatherCode.map((element, item) => (
-        <Hour dataWeather={element} key={item} />
+        <Hour
+          isRefHour={sendRefHour}
+          hourTest={hourTest}
+          dataWeather={element}
+          key={item}
+        />
       ))}
     </div>
   );

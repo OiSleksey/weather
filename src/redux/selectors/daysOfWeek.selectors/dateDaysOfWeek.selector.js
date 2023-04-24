@@ -1,5 +1,10 @@
 import * as dataDayOfWeek from '../dataWeather/dataDayOfWeek';
 
+const checkingAllStates = state => {
+  if (!state.timeDateNow || !state.timeDateNow.weekday) return false;
+  return true;
+};
+
 export const firstDayDateSelector = state => {
   if (!state.timeDateNow || !state.timeDateNow.weekday) return null;
   const firstDay = dataDayOfWeek.getDataDayMonthNameNumberOfWeek(state, 0);

@@ -1,5 +1,4 @@
 import * as dataDetails from '../dataWeather/dataDetails';
-import { getDataRequiredHourSelector } from '../hoursOfDay.selectors/weatherHoursOfDay.selector';
 
 //Сейчас идет проверка по массиву частей дня. при появлении часов нужно будет обращаться к другому массиву
 const getIndexSelectedHour = (arraySelectedHour, stateToggle) => {
@@ -38,28 +37,52 @@ export const weatherCodeSelector = state => {
 };
 
 export const weatherTemperatureSelector = state => {
-  if (!state.weatherData || !state.weatherData.temperature) return null;
+  if (
+    !state.weatherData ||
+    !state.weatherData.temperature ||
+    !state.partWeather.selectedPart ||
+    !state.hourWeather.selectedHour
+  )
+    return null;
   const selectedHour = getSelectedHour(state);
   const temperature = dataDetails.getTemperature(state, selectedHour);
   return Math.ceil(temperature);
 };
 
 export const weatherRelativeHumiditySelector = state => {
-  if (!state.weatherData || !state.weatherData.relativeHumidity) return null;
+  if (
+    !state.weatherData ||
+    !state.weatherData.relativeHumidity ||
+    !state.partWeather.selectedPart ||
+    !state.hourWeather.selectedHour
+  )
+    return null;
   const selectedHour = getSelectedHour(state);
   const relativeHumidity = dataDetails.getRelativeHumidity(state, selectedHour);
   return relativeHumidity;
 };
 
 export const weatherWindSpeedSelector = state => {
-  if (!state.weatherData || !state.weatherData.windSpeed) return null;
+  if (
+    !state.weatherData ||
+    !state.weatherData.windSpeed ||
+    !state.partWeather.selectedPart ||
+    !state.hourWeather.selectedHour
+  )
+    return null;
   const selectedHour = getSelectedHour(state);
   const windSpeed = dataDetails.getWindSpeed(state, selectedHour);
   return Math.round(windSpeed / 3.6);
 };
 
 export const weatherWindDirectionSelector = state => {
-  if (!state.weatherData || !state.weatherData.windDirection) return null;
+  if (
+    !state.weatherData ||
+    !state.weatherData.windDirection ||
+    !state.partWeather.selectedPart ||
+    !state.hourWeather.selectedHour
+  )
+    return null;
   const selectedHour = getSelectedHour(state);
   const windDirection = dataDetails.getWindDirection(state, selectedHour);
   const directionData = {};
@@ -102,7 +125,13 @@ export const weatherWindDirectionSelector = state => {
 };
 
 export const weatherPressureSelector = state => {
-  if (!state.weatherData || !state.weatherData.pressure) return null;
+  if (
+    !state.weatherData ||
+    !state.weatherData.pressure ||
+    !state.partWeather.selectedPart ||
+    !state.hourWeather.selectedHour
+  )
+    return null;
   const selectedHour = getSelectedHour(state);
   const pressure = dataDetails.getPressure(state, selectedHour);
   return Math.round(pressure / 1.3);

@@ -1,15 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import { connect } from 'react-redux';
 import '../HoursOfDay.sass';
 import './Hour.sass';
 
-import { weatherHourSelected } from '../../../../redux/actions/hoursOfDayWeather.actions';
+import {
+  weatherHourSelected,
+  startAction,
+} from '../../../../redux/actions/hoursOfDayWeather.actions';
 // import { getStartPartDay } from '../../../../redux/actions/part-weather.actions';
 
-const Hour = ({ dataWeather, timeDateNow, setSelectedHour, selectedHour }) => {
+const Hour = ({
+  dataWeather,
+  timeDateNow,
+  setSelectedHour,
+  selectedHour,
+  isRefHour,
+}) => {
   useEffect(() => {
-    setSelectedHour(timeDateNow.hour);
+    if (!isRefHour.current) {
+      setSelectedHour(timeDateNow.hour);
+      isRefHour.current = true;
+    }
   }, []);
+
+  // setSelectedHour(timeDateNow.hour);
+
   // useEffect(() => {
   //   // console.log('DayStatus Effect');
   //   props.getTimeDateNow();

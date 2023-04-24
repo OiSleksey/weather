@@ -7,11 +7,23 @@ import { weatherPartSelected } from '../../../../redux/actions/partsOfDayWeather
 
 // const Part = ({ partDay, partWeather, partSelected, setSelectedPartDay }) => {
 
-const Part = ({ dataWeather, partNow, setSelectedPart, selectedPart }) => {
+const Part = ({
+  dataWeather,
+  partNow,
+  setSelectedPart,
+  selectedPart,
+  hourNow,
+  isRefPart,
+}) => {
   // if (!partDay || !partWeather)
+
   useEffect(() => {
-    setSelectedPart(partNow);
+    if (!isRefPart.current) {
+      setSelectedPart(partNow);
+      isRefPart.current = true;
+    }
   }, []);
+
   const currentPart = dataWeather[0];
   const arrPartDayName = ['Night', 'Morning', 'Day', 'Evening'];
   const arrPartDayTimes = [3, 9, 15, 21];
@@ -29,8 +41,7 @@ const Part = ({ dataWeather, partNow, setSelectedPart, selectedPart }) => {
     <div
       className={styleActive}
       onClick={() => {
-        setSelectedPart(dataWeather[0]);
-        console.log('Part');
+        setSelectedPart(currentPart);
       }}
     >
       <div className="night__gap part-one__gap-box">
@@ -83,7 +94,7 @@ const mapDispatch = {
 const mapState = state => {
   return {
     partNow: getIndexSelectedPartDay(state),
-    // hourNow: state.timeDateNow.hour,
+    hourNow: state.timeDateNow.hour,
     selectedPart: state.partWeather.selectedPart,
   };
 };

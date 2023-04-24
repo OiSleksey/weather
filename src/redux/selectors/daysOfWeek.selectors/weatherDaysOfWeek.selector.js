@@ -1,16 +1,4 @@
 import * as dataDayOfWeek from '../dataWeather/dataDayOfWeek';
-export const firstDayallDataFirstDay = state => {
-  if (
-    !state.weatherData ||
-    !state.weatherData.temperature ||
-    !state.weatherData.weatherCode ||
-    !state.weatherData.relativeHumidity ||
-    !state.weatherData.pressure ||
-    !state.weatherData.windSpeed ||
-    !state.weatherData.windDirection
-  )
-    return null;
-};
 
 const getSortedArray = array => {
   const sortArray = array.slice().sort((a, b) => a - b);
@@ -51,7 +39,12 @@ const getWeatherCodeOfDay = (state, numberDay) => {
 };
 
 export const firstDayDataWeatherSelector = state => {
-  if (!state.weatherData || !state.weatherData.temperature) return null;
+  if (
+    !state.weatherData ||
+    !state.weatherData.temperature ||
+    !state.weatherData.weatherCode
+  )
+    return null;
   const firstDayTemperature = getMinMaxTemperatureOfDay(state, 0);
   const firstDayWeatherCode = getWeatherCodeOfDay(state, 0);
   const firstDayData = {
@@ -61,7 +54,12 @@ export const firstDayDataWeatherSelector = state => {
   return firstDayData;
 };
 export const secondDayDataWeatherSelector = state => {
-  if (!state.weatherData || !state.weatherData.temperature) return null;
+  if (
+    !state.weatherData ||
+    !state.weatherData.temperature ||
+    !state.weatherData.weatherCode
+  )
+    return null;
   const secondDayTemperature = getMinMaxTemperatureOfDay(state, 1);
   const secondDayWeatherCode = getWeatherCodeOfDay(state, 1);
   const secondDayData = {
@@ -71,7 +69,12 @@ export const secondDayDataWeatherSelector = state => {
   return secondDayData;
 };
 export const thirdDayDataWeatherSelector = state => {
-  if (!state.weatherData || !state.weatherData.temperature) return null;
+  if (
+    !state.weatherData ||
+    !state.weatherData.temperature ||
+    !state.weatherData.weatherCode
+  )
+    return null;
   const thirdDayTemperature = getMinMaxTemperatureOfDay(state, 2);
   const thirdDayWeatherCode = getWeatherCodeOfDay(state, 2);
   const thirdDayData = {
@@ -81,7 +84,12 @@ export const thirdDayDataWeatherSelector = state => {
   return thirdDayData;
 };
 export const fourthDayDataWeatherSelector = state => {
-  if (!state.weatherData || !state.weatherData.temperature) return null;
+  if (
+    !state.weatherData ||
+    !state.weatherData.temperature ||
+    !state.weatherData.weatherCode
+  )
+    return null;
   const fourthDayTemperature = getMinMaxTemperatureOfDay(state, 3);
   const fourthDayWeatherCode = getWeatherCodeOfDay(state, 3);
   const fourthDayData = {
@@ -91,7 +99,12 @@ export const fourthDayDataWeatherSelector = state => {
   return fourthDayData;
 };
 export const fifthDayDataWeatherSelector = state => {
-  if (!state.weatherData || !state.weatherData.temperature) return null;
+  if (
+    !state.weatherData ||
+    !state.weatherData.temperature ||
+    !state.weatherData.weatherCode
+  )
+    return null;
   const fifthDayTemperature = getMinMaxTemperatureOfDay(state, 4);
   const fifthDayWeatherCode = getWeatherCodeOfDay(state, 4);
   const fifthDayData = {
@@ -101,7 +114,12 @@ export const fifthDayDataWeatherSelector = state => {
   return fifthDayData;
 };
 export const sixthDayDataWeatherSelector = state => {
-  if (!state.weatherData || !state.weatherData.temperature) return null;
+  if (
+    !state.weatherData ||
+    !state.weatherData.temperature ||
+    !state.weatherData.weatherCode
+  )
+    return null;
   const sixthDayTemperature = getMinMaxTemperatureOfDay(state, 5);
   const sixthDayWeatherCode = getWeatherCodeOfDay(state, 5);
   const sixthDayData = {
@@ -111,7 +129,12 @@ export const sixthDayDataWeatherSelector = state => {
   return sixthDayData;
 };
 export const seventhDayDataWeatherSelector = state => {
-  if (!state.weatherData || !state.weatherData.temperature) return null;
+  if (
+    !state.weatherData ||
+    !state.weatherData.temperature ||
+    !state.weatherData.weatherCode
+  )
+    return null;
   const seventhDayTemperature = getMinMaxTemperatureOfDay(state, 6);
   const seventhDayWeatherCode = getWeatherCodeOfDay(state, 6);
   const seventhDayData = {

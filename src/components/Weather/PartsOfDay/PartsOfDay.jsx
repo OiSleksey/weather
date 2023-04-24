@@ -3,14 +3,10 @@ import '../../App.sass';
 import './PartsOfDay.sass';
 import { connect } from 'react-redux';
 import Part from './Part/Part';
-// import NightPart from './NightPart/NightPart';
-// import MorningPart from './MorningPart/MorningPart';
-// import DayPart from './DayPart/DayPart';
-// import EveningPart from './EveningPart/EveningPart';
 import { getWeatherDataSelector } from '../../../redux/selectors/partsOfDay.selectors/weatherPartsOfDay.selector';
 import { weatherPartSelected } from '../../../redux/actions/partsOfDayWeather.actions';
 
-const PartsOfDay = ({ dataWeather }) => {
+const PartsOfDay = ({ dataWeather, sendRefPart }) => {
   if (!dataWeather) return null;
   const arrTemperature = dataWeather.temperature;
   const arrWeatherCode = dataWeather.weatherCode;
@@ -23,7 +19,7 @@ const PartsOfDay = ({ dataWeather }) => {
   return (
     <div className="weather__parts-of-day parts-of-day">
       {arrTemperatureWeatherCode.map((element, item) => (
-        <Part dataWeather={element} key={item} />
+        <Part isRefPart={sendRefPart} dataWeather={element} key={item} />
       ))}
     </div>
   );
