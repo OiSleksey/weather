@@ -8,13 +8,12 @@ import { connect } from 'react-redux';
 // import EveningPart from './EveningPart/EveningPart';
 import Hour from './Hour/Hour';
 // import { getStartPartsDay } from '../../../redux/middleware/partsDayThunk';
-import { getWeatherDataSelector } from '../../../redux/selectors/hoursOfDay.selectors/hourOfDay.selector';
+import { getWeatherDataSelector } from '../../../redux/selectors/hoursOfDay.selectors/weatherHoursOfDay.selector';
 
-const HoursOfDay = ({ dataTest }) => {
-  if (!dataTest) return null;
-  console.log(Object.entries(dataTest));
-  const arrTemperature = dataTest.temperature;
-  const arrWeatherCode = dataTest.weatherCode;
+const HoursOfDay = ({ dataWeather }) => {
+  if (!dataWeather) return null;
+  const arrTemperature = dataWeather.temperature;
+  const arrWeatherCode = dataWeather.weatherCode;
   const arrTemperatureWeatherCode = arrTemperature.map((element, index) => [
     index,
     element,
@@ -36,7 +35,7 @@ const HoursOfDay = ({ dataTest }) => {
 // };
 const mapState = state => {
   return {
-    dataTest: getWeatherDataSelector(state),
+    dataWeather: getWeatherDataSelector(state),
   };
 };
 export default connect(mapState, null)(HoursOfDay);

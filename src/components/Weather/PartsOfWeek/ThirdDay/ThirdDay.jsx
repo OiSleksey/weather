@@ -1,6 +1,6 @@
 import OneDay from '../OneDay/OneDay';
 import { connect } from 'react-redux';
-import { weatherWeekThirdSelected } from '../../../../redux/actions/partsWeekWeather.actions';
+import { weatherWeekThirdSelected } from '../../../../redux/actions/daysOfWeekWeather.actions';
 import { thirdDayDateSelector } from '../../../../redux/selectors/daysOfWeek.selectors/dateDaysOfWeek.selector';
 import { thirdDayDataWeatherSelector } from '../../../../redux/selectors/daysOfWeek.selectors/weatherDaysOfWeek.selector';
 import { thirdDaySelectedSelector } from '../../../../redux/selectors/daysOfWeek.selectors/selectedDayOfWeek.selector';

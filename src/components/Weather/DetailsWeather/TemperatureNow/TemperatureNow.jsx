@@ -1,6 +1,6 @@
 import React, { useEffect, memo } from 'react';
 import { connect } from 'react-redux';
-import { weatherTemperatureNowSelector } from '../../../../redux/selectors/detailsWeather.selectors/detailsDataWeather.selector';
+import { weatherTemperatureSelector } from '../../../../redux/selectors/detailsWeather.selectors/detailsDataWeather.selector';
 import '../DetailsWeather.sass';
 import './TemperatureNow.sass';
 
@@ -40,7 +40,7 @@ const TemperatureNow = props => {
 
 const mapState = state => {
   return {
-    temperature: weatherTemperatureNowSelector(state),
+    temperature: weatherTemperatureSelector(state),
   };
 };
 

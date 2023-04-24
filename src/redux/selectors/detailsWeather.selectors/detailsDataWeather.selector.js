@@ -1,49 +1,67 @@
+import * as dataDetails from '../dataWeather/dataDetails';
 import { getDataRequiredHourSelector } from '../hoursOfDay.selectors/weatherHoursOfDay.selector';
 
 //Сейчас идет проверка по массиву частей дня. при появлении часов нужно будет обращаться к другому массиву
-const getIndexSelectedHour = arraySelectedDay => {
-  for (let i = 0; i < arraySelectedDay.length; i++) {
-    if (arraySelectedDay[i]) {
-      return i;
+const getIndexSelectedHour = (arraySelectedHour, stateToggle) => {
+  let hour = null;
+  for (let i = 0; i < arraySelectedHour.length; i++) {
+    if (arraySelectedHour[i]) {
+      hour = i;
     }
   }
+  if (!stateToggle) {
+    const partDayTimes = [3, 9, 15, 21];
+    return partDayTimes[hour];
+  }
+  return hour;
+};
+
+const getSelectedHour = state => {
+  const stateToggle = state.toggleTimes.stateToggle;
+  const selectedHour = stateToggle
+    ? getIndexSelectedHour(state.hourWeather.selectedHour, stateToggle)
+    : getIndexSelectedHour(state.partWeather.selectedPart, stateToggle);
+  return selectedHour;
 };
 
 export const weatherCodeSelector = state => {
-  if (!state.weatherData.weatherCode || !state.partWeather.selectedPartDay)
+  if (
+    !state.weatherData ||
+    !state.weatherData.weatherCode ||
+    !state.partWeather.selectedPart ||
+    !state.hourWeather.selectedHour
+  )
     return null;
-  const selectedHour = getIndexSelectedHour(state.partWeather.selectedPartDay);
-  const weatherData = getDataRequiredHourSelector(state, selectedHour);
-  return weatherData.weatherCode;
+  const selectedHour = getSelectedHour(state);
+  const weatherCode = dataDetails.getWeatherCode(state, selectedHour);
+  return weatherCode;
 };
 
-export const weatherTemperatureNowSelector = state => {
+export const weatherTemperatureSelector = state => {
   if (!state.weatherData || !state.weatherData.temperature) return null;
-  const selectedHour = getIndexSelectedHour(state.partWeather.selectedPartDay);
-  const weatherData = getDataRequiredHourSelector(state, selectedHour);
-  return Math.ceil(weatherData.temperature);
+  const selectedHour = getSelectedHour(state);
+  const temperature = dataDetails.getTemperature(state, selectedHour);
+  return Math.ceil(temperature);
 };
 
 export const weatherRelativeHumiditySelector = state => {
   if (!state.weatherData || !state.weatherData.relativeHumidity) return null;
-  const selectedHour = getIndexSelectedHour(state.partWeather.selectedPartDay);
-  const weatherData = getDataRequiredHourSelector(state, selectedHour);
-  return weatherData.relativeHumidity;
+  const selectedHour = getSelectedHour(state);
+  const relativeHumidity = dataDetails.getRelativeHumidity(state, selectedHour);
+  return relativeHumidity;
 };
 
 export const weatherWindSpeedSelector = state => {
   if (!state.weatherData || !state.weatherData.windSpeed) return null;
-  const selectedHour = getIndexSelectedHour(state.partWeather.selectedPartDay);
-  const weatherData = getDataRequiredHourSelector(state, selectedHour);
-  const windSpeed = Math.round(weatherData.windSpeed / 3.6);
-  return windSpeed;
+  const selectedHour = getSelectedHour(state);
+  const windSpeed = dataDetails.getWindSpeed(state, selectedHour);
+  return Math.round(windSpeed / 3.6);
 };
 
 export const weatherWindDirectionSelector = state => {
   if (!state.weatherData || !state.weatherData.windDirection) return null;
-  const selectedHour = getIndexSelectedHour(state.partWeather.selectedPartDay);
-  const weatherData = getDataRequiredHourSelector(state, selectedHour);
-  const windDirection = weatherData.windDirection;
+  const selectedHour = getSelectedHour(state);
+  const windDirection = dataDetails.getWindDirection(state, selectedHour);
   const directionData = {};
   if (23 <= windDirection && windDirection <= 68) {
     directionData.number = 6;
@@ -85,8 +103,7 @@ export const weatherWindDirectionSelector = state => {
 
 export const weatherPressureSelector = state => {
   if (!state.weatherData || !state.weatherData.pressure) return null;
-  const selectedHour = getIndexSelectedHour(state.partWeather.selectedPartDay);
-  const weatherData = getDataRequiredHourSelector(state, selectedHour);
-  const pressure = Math.round(weatherData.pressure / 1.3);
-  return pressure;
+  const selectedHour = getSelectedHour(state);
+  const pressure = dataDetails.getPressure(state, selectedHour);
+  return Math.round(pressure / 1.3);
 };

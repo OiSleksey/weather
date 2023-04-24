@@ -24,6 +24,7 @@ function App({ stateToggle }) {
     document.title = `Вы кликнули ${count} раз`;
   }, [count]);
   const visibleTimesOfday = stateToggle ? <HoursOfDay /> : <PartsOfDay />;
+  // const visibleTimesOfday = <HoursOfDay />;
   return (
     <div className="container">
       <div className="row">

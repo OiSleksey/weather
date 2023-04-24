@@ -7,7 +7,6 @@ const initialState = {
 export const toggleTimesOfDayReducer = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_TIMES_OF_DAY: {
-      console.log(action.type);
       return {
         ...state,
         stateToggle: !state.stateToggle,

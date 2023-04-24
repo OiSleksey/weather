@@ -10,18 +10,8 @@ export const firstDayallDataFirstDay = state => {
     !state.weatherData.windDirection
   )
     return null;
-  // console.log(dataDayOfWeek.getArrayTemperatureDay(state, 0));
-  // console.log(dataDayOfWeek.getArrayWeatherCodeDay(state, 0));
-
-  // console.log(dataDayOfWeek.getArrayPressureDay(state, 0));
-  // console.log(dataDayOfWeek.getArrayWindSpeedDay(state, 0));
-  // console.log(dataDayOfWeek.getArrayWindDirectionDay(state, 0));
-  // console.log(dataDayOfWeek.getDataDayMonthNameNumberOfWeek(state, 0));
-  // console.log(dataDayOfWeek.getArrayRelativeHumsdityDay(state, 0));
 };
 
-// console.log(dataDayOfWeek.getArrayTemperatureDay(state, 0));
-// console.log(dataDayOfWeek.getArrayWeatherCodeDay(state, 0));
 const getSortedArray = array => {
   const sortArray = array.slice().sort((a, b) => a - b);
   return sortArray;
@@ -62,7 +52,6 @@ const getWeatherCodeOfDay = (state, numberDay) => {
 
 export const firstDayDataWeatherSelector = state => {
   if (!state.weatherData || !state.weatherData.temperature) return null;
-
   const firstDayTemperature = getMinMaxTemperatureOfDay(state, 0);
   const firstDayWeatherCode = getWeatherCodeOfDay(state, 0);
   const firstDayData = {

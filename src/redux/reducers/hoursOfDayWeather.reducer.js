@@ -1,4 +1,4 @@
-import { WEATHER_HOUR_SELECTED } from '../actions/hoursDayWeather.actions';
+import { WEATHER_HOUR_SELECTED } from '../actions/hoursOfDayWeather.actions';
 
 const arrayFalse = new Array(24).fill(false);
 const initialState = {
@@ -8,7 +8,6 @@ const initialState = {
 export const selectedHourOfDayReducer = (state = initialState, action) => {
   switch (action.type) {
     case WEATHER_HOUR_SELECTED: {
-      console.log(action.type);
       const newArray = arrayFalse.slice();
       newArray[action.payload.selected] = true;
       return {

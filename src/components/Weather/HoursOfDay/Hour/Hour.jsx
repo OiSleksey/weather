@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import '../HoursOfDay.sass';
 import './Hour.sass';
 
-import { weatherHourSelected } from '../../../../redux/actions/hoursDayWeather.actions';
+import { weatherHourSelected } from '../../../../redux/actions/hoursOfDayWeather.actions';
 // import { getStartPartDay } from '../../../../redux/actions/part-weather.actions';
 
-const Hour = ({ dataWeather, setSelectedHour, selectedHour, timeDateNow }) => {
+const Hour = ({ dataWeather, timeDateNow, setSelectedHour, selectedHour }) => {
   useEffect(() => {
     setSelectedHour(timeDateNow.hour);
   }, []);

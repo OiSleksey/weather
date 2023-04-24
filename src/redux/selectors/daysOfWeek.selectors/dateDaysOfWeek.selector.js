@@ -1,27 +1,4 @@
-///////
-
 import * as dataDayOfWeek from '../dataWeather/dataDayOfWeek';
-// import * as dataParOfDay from './dataWeather/dataPartsOfDay';
-// export const firstDayallDataFirstDay = state => {
-//   if (
-//     !state.weatherData ||
-//     !state.weatherData.temperature ||
-//     !state.weatherData.weatherCode ||
-//     !state.weatherData.relativeHumidity ||
-//     !state.weatherData.pressure ||
-//     !state.weatherData.windSpeed ||
-//     !state.weatherData.windDirection
-//   )
-//     return null;
-//   console.log('start');
-//   console.log(dataParOfDay.getTemperaturePartDay(state, 6, 3));
-//   console.log(dataParOfDay.getWeatherCodePartDay(state, 0, 3));
-//   console.log(dataParOfDay.getPressurePartDay(state, 6, 3));
-//   console.log(dataParOfDay.getWindSpeedPartDay(state, 6, 3));
-//   console.log(dataParOfDay.getWindDirectionPartDay(state, 6, 3));
-//   console.log(dataParOfDay.getWindRelativeHumidityPartDay(state, 6, 3));
-//   console.log(dataParOfDay.getDataDayMonthNameNumberPartDay(state, 6, 3));
-// };
 
 export const firstDayDateSelector = state => {
   if (!state.timeDateNow || !state.timeDateNow.weekday) return null;

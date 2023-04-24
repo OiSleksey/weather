@@ -8,16 +8,15 @@ const getIndexSelectedDay = array => {
     if (array[i]) return i;
   }
 };
-export const getArrayTemperatureRequiredDay = state => {
-  const arraySelectedWeekDay = state.weekWeather.selectedWeekday;
-  const indexeSelectedDay = getIndexSelectedDay(arraySelectedWeekDay);
+
+const getArrayHour = (state, indexSelectedDay) => {
   const temperatureArraySecectedDay = getArrayTemperatureDay(
     state,
-    indexeSelectedDay
+    indexSelectedDay
   );
   const weatherCodeArraySelectedDay = getArrayWeatherCodeDay(
     state,
-    indexeSelectedDay
+    indexSelectedDay
   );
 
   const convertedWeatherCodeArraySelectedDay = weatherCodeArraySelectedDay.map(
@@ -27,10 +26,15 @@ export const getArrayTemperatureRequiredDay = state => {
       return value + '';
     }
   );
-
   const weatherDataSelectedDay = {
     temperature: temperatureArraySecectedDay,
     weatherCode: convertedWeatherCodeArraySelectedDay,
   };
+  return weatherDataSelectedDay;
+};
+export const getTemperatureWeatherCodeHoursOfRequiredDay = state => {
+  const arraySelectedWeekDay = state.weekWeather.selectedWeekday;
+  const indexSelectedDay = getIndexSelectedDay(arraySelectedWeekDay);
+  const weatherDataSelectedDay = getArrayHour(state, indexSelectedDay);
   return weatherDataSelectedDay;
 };
