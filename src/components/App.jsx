@@ -1,60 +1,38 @@
 // import logo from './logo.svg';
 import React, { useEffect, useState, useRef } from 'react';
-import { Provider, connect } from 'react-redux';
-
-import {
-  Routes,
-  Route,
-  Navigate,
-  Router,
-  BrowserRouter,
-} from 'react-router-dom';
-import store from '../redux/store';
-import DetailsWeather from './Weather/DetailsWeather/DetailsWeather';
-import PartsOfWeek from './Weather/PartsOfWeek/PartsOfWeek';
-import PartsOfDay from './Weather/PartsOfDay/PartsOfDay';
-import HoursOfDay from './Weather/HoursOfDay/HoursOfDay';
+import { Provider } from 'react-redux';
+import Weather from './Weather/Weather';
 import './App.sass';
 // import '../sass/style';
+import TestToastContainer from './ToastConatainer';
 
-function App({ stateToggle }) {
+// console.log(stateUI.isLoadPage);
+
+function App() {
   const [count, setCount] = useState(0);
   useEffect(() => {
     document.title = `Вы кликнули ${count} раз`;
   }, [count]);
-  const isRefHour = useRef(false);
-  const isRefPart = useRef(false);
-  const visibleTimesOfday = stateToggle ? (
-    <HoursOfDay sendRefHour={isRefHour} />
-  ) : (
-    <PartsOfDay sendRefPart={isRefPart} />
-  );
   return (
+    // if (!weatherData || !weatherData.temperature || !stateUI.isLoadPage)
+    //   return <LoaderBars />;
+
     <div className="container">
-      <div className="row">
+      <div className="row " id="bg-25">
         <div className="container__main">
           <div style={{ position: 'absolute', top: 0, left: 0 }}>
             <h1>Вы кликнули {count} раз</h1>
             <button onClick={() => setCount(count + 1)}>Кликните здесь</button>
           </div>
-          <div className="weather">
-            <DetailsWeather test={count} />
-            <PartsOfWeek />
-            {visibleTimesOfday}
-            {/* <PartsOfDay /> */}
-            {/* <HoursOfDay /> */}
-          </div>
+          <Weather />
+          <TestToastContainer />
         </div>
       </div>
     </div>
   );
 }
-const mapState = state => {
-  return {
-    stateToggle: state.toggleTimes.stateToggle,
-  };
-};
-export default connect(mapState)(App);
+
+export default App;
 
 {
   /* <Routes>

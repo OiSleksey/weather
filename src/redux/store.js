@@ -14,13 +14,13 @@ import {
   selectedPartDayReducer,
   selectedPartOfDayReducer,
 } from './reducers/partsOfDayWeather.reducer';
-import { toggleTimesOfDayReducer } from './reducers/toggleTimesOfDay.reducer';
+import { stateUIReducer } from './reducers/stateUI.reducer';
 import { selectedHourOfDayReducer } from './reducers/hoursOfDayWeather.reducer';
 // import { weatherCodeReducer } from './weather-code/weather-code.reducer';
 
 const allReducers = combineReducers({
   hourWeather: selectedHourOfDayReducer,
-  toggleTimes: toggleTimesOfDayReducer,
+  isUI: stateUIReducer,
   weatherData: locationWeatherReducer,
   timeDateNow: timeDateNowReducer,
   weekWeather: selectedWeekdayReducer,

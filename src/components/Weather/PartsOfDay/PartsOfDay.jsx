@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import '../../App.sass';
 import './PartsOfDay.sass';
 import { connect } from 'react-redux';
 import Part from './Part/Part';
@@ -18,9 +17,11 @@ const PartsOfDay = ({ dataWeather, sendRefPart }) => {
 
   return (
     <div className="weather__parts-of-day parts-of-day">
+      <div className="wrapper-empty"></div>
       {arrTemperatureWeatherCode.map((element, item) => (
         <Part isRefPart={sendRefPart} dataWeather={element} key={item} />
       ))}
+      <div className="wrapper-empty"></div>
     </div>
   );
 };

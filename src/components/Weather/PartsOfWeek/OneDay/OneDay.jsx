@@ -42,8 +42,14 @@ const OneDay = ({
   const weekday = dateData.weekdayName;
   const date = dateData.day;
   const month = dateData.month;
-  const minTemperature = weatherData.minTemperature;
-  const maxTemperature = weatherData.maxTemperature;
+  const minTemperature =
+    weatherData.minTemperature > 0
+      ? '+' + weatherData.minTemperature
+      : weatherData.minTemperature;
+  const maxTemperature =
+    weatherData.maxTemperature > 0
+      ? '+' + weatherData.maxTemperature
+      : weatherData.maxTemperature;
   return (
     <div onClick={setSelectedWeekday} className={selectedStyle}>
       <div className="one-day__img-box day-first__img-box">
@@ -59,7 +65,7 @@ const OneDay = ({
         </div>
         <div className="data-box__temperature">
           <h4 className="data-box__indicators">
-            {`${minTemperature}/${maxTemperature}`} &deg;С
+            {`${minTemperature}/${maxTemperature}`} С&deg;
           </h4>
         </div>
       </div>

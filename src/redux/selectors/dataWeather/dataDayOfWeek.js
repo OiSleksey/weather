@@ -98,6 +98,5 @@ export const getDataDayMonthNameNumberOfWeek = (state, requiredDay) => {
     day: requiredDate,
     month: requiredMonth,
   };
-  // console.log(dataDate);
   return dataDate;
 };

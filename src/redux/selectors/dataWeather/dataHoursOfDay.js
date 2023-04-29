@@ -13,7 +13,7 @@ const getArrayHour = (state, indexSelectedDay) => {
   const temperatureArraySecectedDay = getArrayTemperatureDay(
     state,
     indexSelectedDay
-  );
+  ).map(value => Math.round(value));
   const weatherCodeArraySelectedDay = getArrayWeatherCodeDay(
     state,
     indexSelectedDay

@@ -7,7 +7,7 @@ export const getWeatherDataSelector = state => {
     !state.weatherData ||
     !state.weatherData.temperature ||
     !state.weatherData.weatherCode ||
-    state.toggleTimes.stateToggle
+    state.isUI.stateToggle
   )
     return null;
   const weatherDataHours =

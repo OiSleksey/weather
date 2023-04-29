@@ -2,14 +2,12 @@ import React, { useEffect, memo } from 'react';
 import '../DetailsWeather.sass';
 import './LocationTown.sass';
 import { connect } from 'react-redux';
-import { getLocationDispatchWeather } from '../../../../redux/middleware/weatherThunk';
+// import { getLocationDispatchWeather } from '../../../../redux/middleware/weatherThunk';
 import { namePositionSelector } from '../../../../redux/selectors/locationName.selectors/locationName.selector';
 
-const LocationTown = ({ namePosition, getLocationWeather }) => {
+const LocationTown = ({ namePosition }) => {
   ///
-  useEffect(() => {
-    getLocationWeather();
-  }, []);
+
   if (!namePosition) {
     return (
       <div className="detail__location location">
@@ -48,16 +46,9 @@ const mapState = state => {
   };
 };
 
-const mapDispatch = {
-  getLocationWeather: getLocationDispatchWeather,
-};
-
 function propsAreEqual(prevProps, nextProps) {
   const boolValue = prevProps.namePosition === nextProps.namePosition;
   return boolValue;
 }
 
-export default connect(
-  mapState,
-  mapDispatch
-)(memo(LocationTown, propsAreEqual));
+export default connect(mapState)(memo(LocationTown, propsAreEqual));

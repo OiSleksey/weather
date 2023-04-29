@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../DetailsWeather.sass';
 import './ToggleWeather.sass';
-import { toggleTimesOfDay } from '../../../../redux/actions/toggleTimesOfDay.action';
+import { toggleTimesOfDay } from '../../../../redux/actions/stateUI.action';
 
 const ToggleWeather = ({ stateToggle, toggleTimesOfDay }) => {
   return (
@@ -20,7 +20,7 @@ const ToggleWeather = ({ stateToggle, toggleTimesOfDay }) => {
 };
 const mapState = state => {
   return {
-    stateToggle: state.toggleTimes.stateToggle,
+    stateToggle: state.isUI.stateToggle,
   };
 };
 const mapDispatch = {

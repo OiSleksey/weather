@@ -1,0 +1,24 @@
+
+.weather
+    width: 77.9rem
+    height: 43.4rem
+    background: aqua
+    display: grid
+    grid-template-columns: repeat(19,1fr)
+    grid-template-rows: repeat(14,1fr)
+    border-bottom-left-radius: 16rem
+
+    &__detail
+        grid-column: 1/17
+        grid-row: 1/10
+    &__week
+        background: green
+        grid-column: 17/-1
+        grid-row: 1/-1
+    &__parts-of-day
+        background: pink
+        grid-column: 1/17
+        grid-row: 10/-1
+    &__hours-of-day
+        grid-column: 1/17
+        grid-row: 10/-1

@@ -16,7 +16,7 @@ const getIndexSelectedHour = (arraySelectedHour, stateToggle) => {
 };
 
 const getSelectedHour = state => {
-  const stateToggle = state.toggleTimes.stateToggle;
+  const stateToggle = state.isUI.stateToggle;
   const selectedHour = stateToggle
     ? getIndexSelectedHour(state.hourWeather.selectedHour, stateToggle)
     : getIndexSelectedHour(state.partWeather.selectedPart, stateToggle);

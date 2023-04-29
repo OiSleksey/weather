@@ -2,7 +2,7 @@ import { getLocation, getPosition } from '../../api-requests/getLocation';
 import * as fetchWeather from '../../api-requests/getWether';
 import * as actions from '../actions/locationWeather.actions';
 
-export const getLocationDispatchWeather = () => {
+export const getLocationWeatherDispatch = () => {
   return function (dispatch) {
     getLocation().then(data => {
       dispatch(actions.weatherLocation(data));

@@ -14,6 +14,7 @@ const TemperatureNow = ({ temperature }) => {
       </div>
     );
   }
+  const correctTemperature = temperature > 0 ? '+' + temperature : temperature;
   // useEffect(() => {
   //   props.getWeatherCode();
   //   console.log('WeatherCode Effect');
@@ -25,7 +26,7 @@ const TemperatureNow = ({ temperature }) => {
   return (
     <div className="detail__temperature-main temperature-main">
       <div className="temperature-main__quantity">
-        <h1 className="temperature-main__text">{temperature}</h1>
+        <h1 className="temperature-main__text">{correctTemperature}</h1>
       </div>
       <div className="temperature-main__img-box">
         <img

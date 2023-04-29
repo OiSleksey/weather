@@ -2,17 +2,18 @@ import React, { useEffect, memo } from 'react';
 import { connect } from 'react-redux';
 import '../DetailsWeather.sass';
 import './DayStatus.sass';
-import { getTimeDateNow } from '../../../../redux/actions/timeData.actions';
+// import { getTimeDateNow } from '../../../../redux/actions/timeData.actions';
+import { dayStatusSelector } from './../../../../redux/selectors/detailsWeather.selectors/dayStatus.selector';
 
-const DayStatus = props => {
-  useEffect(() => {
-    // console.log('DayStatus Effect');
-    props.getTimeDateNow();
-  }, []);
-  if (!props.timeDateNow.hour) {
+const DayStatus = ({ dayStatus }) => {
+  if (!dayStatus) {
     return <h3>Loading...</h3>;
   }
-  const displayDayTime = `Today ${props.timeDateNow.hour}:00`;
+  const hourOrPart = dayStatus.hourOrPart;
+  const weekday = dayStatus.weekdayName;
+  const day = dayStatus.day;
+  const month = dayStatus.month;
+  const displayDayTime = `${weekday} ${day}.${month} ${hourOrPart}`;
   // console.log(props);
   return (
     <>
@@ -29,11 +30,8 @@ const DayStatus = props => {
 const mapState = state => {
   return {
     timeDateNow: state.timeDateNow,
+    dayStatus: dayStatusSelector(state),
   };
-};
-
-const mapDispatch = {
-  getTimeDateNow: getTimeDateNow,
 };
 
 // function propsAreEqual(prevProps, nextProps) {
@@ -41,5 +39,5 @@ const mapDispatch = {
 //     prevProps.location.namePosition === nextProps.location.namePosition;
 //   return boolValue;
 // }
-export default connect(mapState, mapDispatch)(DayStatus);
+export default connect(mapState)(DayStatus);
 // export default connect(mapState, mapDispatch)(memo(DayStatus, propsAreEqual));
