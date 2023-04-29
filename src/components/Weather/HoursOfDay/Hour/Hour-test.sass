@@ -14,15 +14,15 @@
     padding: 1rem
     cursor: pointer
     background: $background-hour
-    // filter: $drop-shadow-hour
-    // box-shadow: $box-shadow-hour
-    // border-right: 1rem solid black
+    border-radius: 1rem
     transition: transform .4s
     // position: fixed
     // top: 0
     // left: 10rem
+    transform: skewX(22deg)
+
     &:hover
-        transform: scale(1.1)
+        transform: skewX(22deg) scale(1.1)
     ///import css-variables from 
     // position: absolute
     // top: 0
@@ -30,12 +30,14 @@
     &__times-box
         grid-row: 1/2
         @include flex-Vcenter-Hcenter
-        margin-bottom: .8rem
+
     &__times
         margin: 0
         font-size: 1.5rem
         text-shadow: $text-shadow-hour
         font-weight: $font-weight-hour
+        transform: skewX(-22deg)
+
     &__img-box
         grid-row: 2/4
         @include flex-Vcenter-Hcenter
@@ -43,6 +45,7 @@
     &__img
         filter: $drop-shadow-hour
         width: 70%
+        transform: skewX(-22deg)
     &__temperature-box
         grid-row: 4/5
         @include flex-Vend-Hcenter
@@ -51,6 +54,7 @@
         font-size: 1.5rem
         text-shadow: $text-shadow-hour
         font-weight: $font-weight-hour
+        transform: skewX(-22deg)
         // margin: 0 0 1rem 0
     &_active
         background: $background-hour-active

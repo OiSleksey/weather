@@ -10,8 +10,8 @@ const OneDay = ({
   selectedWeekday,
 }) => {
   const selectedStyle = selectedWeekday
-    ? 'week__day one-day day-first one-day_active'
-    : 'week__day one-day day-first';
+    ? 'week__day one-day one-day_active'
+    : 'week__day one-day';
   if (!dateData || !weatherData)
     return (
       <div
@@ -22,7 +22,7 @@ const OneDay = ({
         className={selectedStyle}
       >
         <div
-          className="one-day__img-box day-first__img-box"
+          className="one-day__img-box"
           onClick={() => {
             console.log(dateData, weatherData);
           }}
@@ -52,14 +52,14 @@ const OneDay = ({
       : weatherData.maxTemperature;
   return (
     <div onClick={setSelectedWeekday} className={selectedStyle}>
-      <div className="one-day__img-box day-first__img-box">
+      <div className="one-day__img-box">
         <img
           src={`./img/weather-code/weathercode-${weatherData.weatherCode}.png`}
           alt="weathercode"
           className="one-day__img"
         />
       </div>
-      <div className="day-first__day one-day__data-box data-box">
+      <div className="one-day__data-box data-box">
         <div className="data-box__name-day">
           <h4 className="data-box__title">{`${weekday} ${date}.${month}`}</h4>
         </div>

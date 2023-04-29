@@ -22,7 +22,6 @@ export const pastePartsSelector = state => {
   const selectedDay = getIndexSelectedArray(state.weekWeather.selectedWeekday);
 
   const isFirstDay = selectedDay === 0;
-  console.log(isFirstDay);
   const part = {
     isFirstDay,
     partNow: partNow,

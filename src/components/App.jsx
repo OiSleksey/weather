@@ -25,7 +25,7 @@ function App() {
             <button onClick={() => setCount(count + 1)}>Кликните здесь</button>
           </div>
           <Weather />
-          <TestToastContainer />
+          {/* <TestToastContainer /> */}
         </div>
       </div>
     </div>

@@ -5,9 +5,6 @@ import { connect } from 'react-redux';
 import Hour from './Hour/Hour-test';
 import { getWeatherDataSelector } from '../../../redux/selectors/hoursOfDay.selectors/weatherHoursOfDay.selector';
 
-import { useScroll, animated } from '@react-spring/web';
-//
-import App from './TestAnimated/App';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 
@@ -26,9 +23,8 @@ const HoursOfDay = ({ dataWeather, sendRefHour, hourNow }) => {
     element,
     arrWeatherCode[index],
   ]);
-  const hourTest = 0;
+
   const handleMouseWheel = event => {
-    console.log(currentIndex);
     if (currentIndex < 0) {
       return setCurrentIndex(0);
     } else if (arrTemperatureWeatherCode.length - 3 < currentIndex) {
@@ -82,7 +78,6 @@ const HoursOfDay = ({ dataWeather, sendRefHour, hourNow }) => {
   //   }
   // }
   const handleSlideChanged = ({ item }) => {
-    console.log(item);
     setCurrentIndex(item);
   };
   const handleDragStart = e => e.preventDefault();
@@ -116,7 +111,6 @@ const HoursOfDay = ({ dataWeather, sendRefHour, hourNow }) => {
       onDragStart={handleDragStart}
       role="presentation"
       isRefHour={sendRefHour}
-      hourTest={hourTest}
       dataWeather={element}
       key={item}
 
@@ -132,7 +126,7 @@ const HoursOfDay = ({ dataWeather, sendRefHour, hourNow }) => {
   return (
     <div
       className="weather__hours-of-day hours-of-day scrollbar-hide"
-      id="statistic-table"
+      // id="statistic-table"
       onWheel={handleMouseWheel}
       // onScroll={handleScroll}
 
