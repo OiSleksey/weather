@@ -12,7 +12,7 @@ import SeventhDay from './SeventhDay/SeventhDay';
 
 const WeekWeather = props => {
   return (
-    <div className="weather__week week">
+    <div className="weather__week week d-xxl-none">
       <FirstDay />
       <SecondDay />
       <ThirdDay />
