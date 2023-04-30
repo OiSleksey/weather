@@ -31,7 +31,7 @@ const Pressure = ({ pressure }) => {
         <div className="pressure__box">
           <div className="pressure__img-box">
             <img
-              src="./img/presure.png"
+              src="./img/pressure.png"
               alt="pressure"
               className="pressure__img"
             />

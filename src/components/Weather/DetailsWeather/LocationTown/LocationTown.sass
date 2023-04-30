@@ -1,11 +1,23 @@
+@import '../../../../sass/variables/colors.sass'
+@import '../../../../sass/variables/mixins.sass'
+
 .location
     display: grid
     grid-template-columns: 1fr 6fr
-    padding: 1rem
+    padding: .4rem
+    background: $background-location__test
     &__img-box
-        // @include flex-Vcenter-Hend
+        @include flex-Vcenter-Hend
     &__img
         width: 80%
+        filter: $drop-shadow-location
     &__text-box
-        // @include flex-Vcenter-Hstart
+        @include flex-Vcenter-Hstart
     &__text
+        color: $color-location
+        font-size: 2.1rem
+        font-weight: $font-weight-location
+        margin: 0
+        text-shadow: $text-shadow-location
+        padding: .7rem 1rem
+        border-radius: .8rem

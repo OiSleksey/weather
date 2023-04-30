@@ -5,7 +5,7 @@ import './WindSpeed.sass';
 import { weatherWindSpeedSelector } from '../../../../../redux/selectors/detailsWeather.selectors/detailsDataWeather.selector';
 
 const WindSpeed = ({ windSpeed }) => {
-  if (!windSpeed) {
+  if (!(windSpeed + '')) {
     return (
       <div className="other-indicators__wind-speed wind-speed">
         <div className="wind-speed__box">

@@ -24,11 +24,11 @@ const TemperatureNow = ({ temperature }) => {
   //   return <div>BAD</div>;
   // }
   return (
-    <div className="detail__temperature-main temperature-main">
-      <div className="temperature-main__quantity">
+    <div className="detail__temperature-main temperature-main row">
+      <div className="temperature-main__quantity col-md-6">
         <h1 className="temperature-main__text">{correctTemperature}</h1>
       </div>
-      <div className="temperature-main__img-box">
+      <div className="temperature-main__img-box col-md-6">
         <img
           src="./img/temperature.png"
           alt="temperature-main"

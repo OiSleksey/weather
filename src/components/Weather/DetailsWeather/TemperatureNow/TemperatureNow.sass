@@ -1,15 +1,24 @@
 @import '../../../../sass/variables/colors.sass'
 @import '../../../../sass/variables/mixins.sass'
 .temperature-main
-    display: grid
-    grid-template-columns: 1.5fr 0.7fr
+    // display: grid
+    // grid-template-columns: 1fr 1fr
+    border-radius: 1rem
+    box-shadow: $box-shadow-temperature
+    background: $background-temperature
+    padding: 0.2rem 0.5rem
     &__quantity
         @include flex-Vcenter-Hend
+        margin: 0
     &__text
-        margin-right: 1rem
-        font-size: 7rem
+        color: $color-temperature
+        font-size: 6.5rem
+        margin-bottom: 1.1rem
+        text-shadow: $text-shadow-temperature
     &__img-box
         display: flex
         align-items: center
+        // padding: 2rem 1rem 1rem 1rem
     &__img
         width: 100%
+        filter: $drop-shadow-temperature

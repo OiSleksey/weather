@@ -5,6 +5,7 @@ import WeatherCode from './WeatherCode/WeatherCode';
 import TemperatureNow from './TemperatureNow/TemperatureNow';
 import OtherIndicators from './OtherIndicators/OtherIndicators';
 import ToggleWeather from './ToggleWeather/ToggleWeather';
+import NameApp from './NameApp/NameApp';
 import '../../../components/App.sass';
 import './DetailsWeather.sass';
 
@@ -19,9 +20,7 @@ const DeatailsWeather = props => {
         </div>
       </div>
       <LocationTown />
-      <div className="detail__title-name-weather title-name-weather">
-        <h2 className="title-name-weather__text">WEATHER</h2>
-      </div>
+      <NameApp />
       <WeatherCode />
       <TemperatureNow />
       <DayStatus />

@@ -1,4 +1,20 @@
+@import '../../../../sass/variables/colors.sass'
+@import '../../../../sass/variables/mixins.sass'
+
 .other-indicators
     display: grid
-    // grid-template-columns: repeat(4,1fr)
-    // grid-template-rows: repeat(4,1fr)
+    padding: 1rem
+    grid-template-rows: repeat(4,1fr)
+    border-radius: 1rem
+    box-shadow: $box-shadow-other-indicators
+    background: $background-other-indicators
+    color: $color-other-indicators
+    // background: transparent
+    &__relative-humadity
+        @include flex-Vcenter-Hcenter
+    &__wind-speed
+        @include flex-Vcenter-Hcenter
+    &__wind-direction
+        @include flex-Vcenter-Hcenter
+    &__pressure
+        @include flex-Vcenter-Hcenter
