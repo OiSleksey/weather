@@ -1,25 +1,49 @@
 
 .weather
-    width: 77.9rem
+    // width: 77.9rem
+    // height: 43.4rem
+    padding: 0
+    flex-wrap: nowrap
+    position: relative
+    &__main
+    &__sidebar
+
+.main
+    // width: 77.9rem
+    // height: 43.4rem
+    width: 65.6rem
     height: 43.4rem
     // background: #0000008f
-    background: #efe4e4d6
+    background: #ffffff00
     display: grid
-    grid-template-columns: repeat(19,1fr)
+    grid-template-columns: repeat(16,1fr)
     grid-template-rows: repeat(14,1fr)
     border-radius: 10rem
     border-bottom-left-radius: 16rem
-
+    // flex: none
+    padding: 0
     &__detail
-        grid-column: 1/17
+        grid-column: 1/-1
         grid-row: 1/10
-    &__week
-        grid-column: 17/-1
-        grid-row: 1/-1
+    // &__week
+    //     grid-column: 17/-1
+    //     grid-row: 1/-1
     &__parts-of-day
         background: pink
-        grid-column: 1/17
+        grid-column: 1/-1
         grid-row: 10/-1
     &__hours-of-day
-        grid-column: 1/17
+        grid-column: 1/-1
         grid-row: 10/-1
+
+.sidebar
+    // flex: none
+    position: relative
+    padding: 0
+    &_active
+        position: absolute
+        top: 0
+        right: 6.3rem
+        z-index: 2
+        // top: 4rem
+        // right: 1.6rem

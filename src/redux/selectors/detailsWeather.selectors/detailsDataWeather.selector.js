@@ -46,7 +46,7 @@ export const weatherTemperatureSelector = state => {
     return null;
   const selectedHour = getSelectedHour(state);
   const temperature = dataDetails.getTemperature(state, selectedHour);
-  return Math.ceil(temperature);
+  return Math.round(temperature) + '';
 };
 
 export const weatherRelativeHumiditySelector = state => {

@@ -125,7 +125,7 @@ const HoursOfDay = ({ dataWeather, sendRefHour, hourNow }) => {
 
   return (
     <div
-      className="weather__hours-of-day hours-of-day scrollbar-hide"
+      className="main__hours-of-day hours-of-day scrollbar-hide"
       // id="statistic-table"
       onWheel={handleMouseWheel}
       // onScroll={handleScroll}

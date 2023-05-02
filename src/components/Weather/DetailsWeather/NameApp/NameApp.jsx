@@ -10,17 +10,13 @@ import $ from 'jquery';
 const NameApp = () => {
   return (
     <div className="detail__name-weather name-weather">
-      <div class="name-weather__text-effect-box">
+      <div className="name-weather__text-effect-box">
         {/* <!-- Select the text in the preview and type in your own --> */}
-        <h2
-          class="name-weather__text-effect"
-          data-text="Weather"
-          contenteditable
-        >
+        <h2 className="name-weather__text-effect" data-text="Weather">
           Weather
         </h2>
-        <div class="name-weather__gradient"></div>
-        <div class="name-weather__spotlight"></div>
+        <div className="name-weather__gradient"></div>
+        <div className="name-weather__spotlight"></div>
       </div>
     </div>
   );

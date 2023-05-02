@@ -10,7 +10,8 @@
     box-shadow: $box-shadow-day
     background: $background-day
     margin-bottom: 0.08rem
-    transition: scale .4s
+    transition: transform .4s
+    padding: .5rem 0
     &__img-box
         @include flex-Vcenter-Hend
     &__img
@@ -22,7 +23,7 @@
     &_active
         background: $background-day-active
     &:hover
-        transform: scale(1.05)
+        transform: scale(1.1)
 
 .data-box
     padding: 0.6rem 0

@@ -18,7 +18,14 @@ import {
 } from 'react-router-dom';
 
 // import store from '../redux/store';
-import { animated, useSpring } from '@react-spring/web';
+// import {
+//   useTransition,
+//   useSpring,
+//   useChain,
+//   config,
+//   animated,
+//   useSpringRef,
+// } from '@react-spring/web';
 
 const Weather = ({
   stateUI,
@@ -48,22 +55,18 @@ const Weather = ({
   let loader = <LoaderBars />;
   if (weatherData && weatherData.temperature && stateUI.isLoadPage)
     loader = null;
-  // if (weatherData && weatherData.temperature) loader = null;
 
-  // if (document.readyState === 'complete') {
-  //   console.log('readySate');
-  // } else {
-  //   window.addEventListener('load', () => console.log('event here'));
-  // }
   return (
     <>
       {loader}
-      <div className="weather">
-        <DetailsWeather />
-        <PartsOfWeek />
-        {visibleTimesOfday}
-        {/* <PartsOfDay sendRefPart={isRefPart} /> */}
-        {/* <HoursOfDay /> */}
+      <div className="weather row">
+        <div className="weather__main main col-10">
+          <DetailsWeather />
+          {visibleTimesOfday}
+        </div>
+        <div className="weather__sidebar sidebar col-2">
+          <PartsOfWeek />
+        </div>
       </div>
     </>
   );

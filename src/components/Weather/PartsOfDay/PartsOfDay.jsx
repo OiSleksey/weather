@@ -80,7 +80,7 @@ const PartsOfDay = ({ dataWeather, sendRefPart, partData }) => {
   console.log(partData.partNow);
 
   return (
-    <div className="weather__parts-of-day parts-of-day scrollbar-hide">
+    <div className="main__parts-of-day parts-of-day scrollbar-hide">
       <AliceCarousel
         mouseTracking
         items={items}
