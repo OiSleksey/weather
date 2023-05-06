@@ -1,23 +1,37 @@
+@import '../sass/media-queires/media'
+
+// html
+//     font-size: 62.7%
+html
+    font-size: 62.5%
+    @include respond(tab-port-first)
+        font-size: 50%
+    @include respond(tab-port-second)
+        font-size: 40%
+    @include respond(tab-port-third)
+        font-size: 35%
+    @include respond(phone-first)
+        font-size: 55%
+    // @include respond(phone-second)
+    //     font-size: 30%
 
 *
     box-sizing: border-box
-    font-size: 62.7%
     user-select: none
 
 body
     background-color: #686563
     width: 100%
+    // overflow: hidden
+    // overflow: auto
 
-    overflow: hidden
-
-.container__main
-    background: yellow
-    font-size: 2rem
-    height: 100vh
-    display: flex
-    justify-content: center
-    align-items: center
-#bg-25
-    width: 100%
-    height: 520px
-    margin: 20px 0
+.container
+    // padding: 10rem 0
+    &__main
+        padding: 10rem 0
+        background: yellow
+        font-size: 2rem
+        height: 100vh
+        display: flex
+        justify-content: center
+        align-items: center

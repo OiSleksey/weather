@@ -4,14 +4,18 @@ import './HoursOfDay.sass';
 import { connect } from 'react-redux';
 import Hour from './Hour/Hour';
 import { getWeatherDataSelector } from '../../../redux/selectors/hoursOfDay.selectors/weatherHoursOfDay.selector';
+import PropTypes from 'prop-types';
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
 
-import { useScroll, animated } from '@react-spring/web';
-//
-import App from './TestAnimated/App';
+const HoursOfDay = ({ dataWeather, sendRefHour, hourNow }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  useEffect(() => {
+    const activeHour = Number(hourNow);
+    setCurrentIndex(activeHour);
+  }, [hourNow]);
 
-const HoursOfDay = ({ dataWeather, sendRefHour }) => {
-  const positionRef = useRef(0);
-  if (!dataWeather) return null;
+  if (!dataWeather || !hourNow) return null;
   const arrTemperature = dataWeather.temperature;
   const arrWeatherCode = dataWeather.weatherCode;
   const arrTemperatureWeatherCode = arrTemperature.map((element, index) => [
@@ -19,44 +23,93 @@ const HoursOfDay = ({ dataWeather, sendRefHour }) => {
     element,
     arrWeatherCode[index],
   ]);
-  const hourTest = 0;
 
-  const appStyle = {
-    whiteSpace: 'nowrap', // used only to display text as not wrapped lines
-    // overflow: 'scroll',
-  };
-
-  const handleScroll = e => {
-    const x = e.currentTarget.scrollLeft;
-    if (x !== positionRef.current) {
-      positionRef.current = x;
-      console.log('Horizontal scroll event occurred' + x);
+  const handleMouseWheel = event => {
+    if (currentIndex < 0) {
+      return setCurrentIndex(0);
+    } else if (arrTemperatureWeatherCode.length - 3 < currentIndex) {
+      setCurrentIndex(arrTemperatureWeatherCode.length - 3);
+      return;
+    } else if (event.deltaY < 0) {
+      setCurrentIndex(currentIndex - 1);
+    } else if (event.deltaY > 0) {
+      setCurrentIndex(currentIndex + 1);
     }
   };
-  //
+
+  const handleSlideChanged = ({ item }) => {
+    setCurrentIndex(item);
+  };
+  const handleDragStart = e => e.preventDefault();
+  const propsCarousel = {
+    // activeIndex: currentIndex - 4,
+    // controlsStrategy: 'default,alternate',
+    animationDuration: 100,
+    autoWidth: true,
+    disableDotsControls: true,
+    keyboardNavigation: true,
+    mouseTracking: true,
+    // responsive: {
+    //   0: {
+    //     items: 3,
+    //     itemsFit: 'undefined',
+    //   },
+    //   1024: {
+    //     items: 3,
+    //     itemsFit: 'contain',
+    //   },
+    // },
+    swipeDelta: 5,
+    paddingLeft: 100,
+    paddingRight: 100,
+    // autoPlayControls: true,
+    // autoHeight: true,
+    // animationType: 'fadeout'
+  };
+  const items = arrTemperatureWeatherCode.map((element, item) => (
+    <Hour
+      onDragStart={handleDragStart}
+      role="presentation"
+      isRefHour={sendRefHour}
+      dataWeather={element}
+      key={item}
+    />
+  ));
+
   return (
     <div
-      className="weather__hours-of-day hours-of-day"
-      onScroll={handleScroll}
-      style={appStyle}
+      className="main__hours-of-day hours-of-day scrollbar-hide"
+      onWheel={handleMouseWheel}
     >
-      {/* <App /> */}
-      {arrTemperatureWeatherCode.map((element, item) => (
-        <Hour
-          isRefHour={sendRefHour}
-          hourTest={hourTest}
-          dataWeather={element}
-          key={item}
-        />
-      ))}
+      <AliceCarousel
+        mouseTracking
+        items={items}
+        {...propsCarousel}
+        activeIndex={currentIndex - 1}
+        onSlideChanged={handleSlideChanged}
+      />
     </div>
   );
+};
+
+HoursOfDay.propTypes = {
+  dataWeather: PropTypes.object,
+  sendRefHour: PropTypes.object.isRequired,
+  hourNow: PropTypes.string,
 };
 
 const mapState = state => {
   return {
     dataWeather: getWeatherDataSelector(state),
-    selectedHour: state.hourWeather.selectedHour,
+    hourNow: state.timeDateNow.hour,
   };
 };
 export default connect(mapState, null)(HoursOfDay);
+
+// 1//091Ro4dhUhOHKCgYIARAAGAkSNwF-L9IrjcsgZRxcKPG7u1gEPpbSa-_g9bQVaJfa1Ebvjgap48InXq_z5dS3rBUxuRA5ggQoO3s
+
+// Authenticating with a `login:ci` token is deprecated and will be removed in a future major version of `firebase-tools`. Instead, use a service
+
+// accoaJfa1Ebvjgap48InXq_z5dS3rBUxuRA5ggQoO3s
+
+// accoaJfa1Ebvjgap48InXq_z5dS3rBUxuRA5ggQoO3s

@@ -10,23 +10,21 @@ import TestToastContainer from './ToastConatainer';
 
 function App() {
   const [count, setCount] = useState(0);
-  useEffect(() => {
-    document.title = `Вы кликнули ${count} раз`;
-  }, [count]);
+  // useEffect(() => {
+  //   document.title = `Вы кликнули ${count} раз`;
+  // }, [count]);
   return (
     // if (!weatherData || !weatherData.temperature || !stateUI.isLoadPage)
     //   return <LoaderBars />;
 
     <div className="container">
-      <div className="row " id="bg-25">
-        <div className="container__main">
-          <div style={{ position: 'absolute', top: 0, left: 0 }}>
-            <h1>Вы кликнули {count} раз</h1>
-            <button onClick={() => setCount(count + 1)}>Кликните здесь</button>
-          </div>
-          <Weather />
-          {/* <TestToastContainer /> */}
-        </div>
+      <div className="container__main">
+        {/* <div style={{ position: 'absolute', top: 0, left: 0 }}>
+          <h1>Вы кликнули {count} раз</h1>
+          <button onClick={() => setCount(count + 1)}>Кликните здесь</button>
+        </div> */}
+        <Weather />
+        {/* <TestToastContainer /> */}
       </div>
     </div>
   );

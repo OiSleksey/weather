@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { weatherPressureSelector } from '../../../../../redux/selectors/detailsWeather.selectors/detailsDataWeather.selector';
 import '../OtherIndicators.sass';
 import './Pressure.sass';
+import PropTypes from 'prop-types';
+
 // details-weather.selector
 const Pressure = ({ pressure }) => {
   if (!pressure) {
@@ -43,6 +45,10 @@ const Pressure = ({ pressure }) => {
       </div>
     </div>
   );
+};
+
+Pressure.propTypes = {
+  pressure: PropTypes.string,
 };
 
 const mapState = state => {

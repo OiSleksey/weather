@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import '../OtherIndicators.sass';
 import './WindSpeed.sass';
 import { weatherWindSpeedSelector } from '../../../../../redux/selectors/detailsWeather.selectors/detailsDataWeather.selector';
+import PropTypes from 'prop-types';
 
 const WindSpeed = ({ windSpeed }) => {
   if (!(windSpeed + '')) {
@@ -39,6 +40,10 @@ const WindSpeed = ({ windSpeed }) => {
       </div>
     </div>
   );
+};
+
+WindSpeed.propTypes = {
+  windSpeed: PropTypes.string,
 };
 
 const mapState = state => {

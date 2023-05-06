@@ -59,7 +59,7 @@ export const weatherRelativeHumiditySelector = state => {
     return null;
   const selectedHour = getSelectedHour(state);
   const relativeHumidity = dataDetails.getRelativeHumidity(state, selectedHour);
-  return relativeHumidity;
+  return relativeHumidity + '';
 };
 
 export const weatherWindSpeedSelector = state => {
@@ -72,7 +72,7 @@ export const weatherWindSpeedSelector = state => {
     return null;
   const selectedHour = getSelectedHour(state);
   const windSpeed = dataDetails.getWindSpeed(state, selectedHour);
-  return Math.round(windSpeed / 3.6);
+  return Math.round(windSpeed / 3.6) + '';
 };
 
 export const weatherWindDirectionSelector = state => {
@@ -134,5 +134,5 @@ export const weatherPressureSelector = state => {
     return null;
   const selectedHour = getSelectedHour(state);
   const pressure = dataDetails.getPressure(state, selectedHour);
-  return Math.round(pressure / 1.3);
+  return Math.round(pressure / 1.3) + '';
 };

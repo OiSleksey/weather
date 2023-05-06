@@ -4,6 +4,7 @@ import '../DetailsWeather.sass';
 import './DayStatus.sass';
 // import { getTimeDateNow } from '../../../../redux/actions/timeData.actions';
 import { dayStatusSelector } from './../../../../redux/selectors/detailsWeather.selectors/dayStatus.selector';
+import PropTypes from 'prop-types';
 
 const DayStatus = ({ dayStatus }) => {
   if (!dayStatus) {
@@ -25,6 +26,10 @@ const DayStatus = ({ dayStatus }) => {
       </div>
     </>
   );
+};
+
+DayStatus.propTypes = {
+  dayStatus: PropTypes.object,
 };
 
 const mapState = state => {

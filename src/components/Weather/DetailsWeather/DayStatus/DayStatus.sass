@@ -1,5 +1,6 @@
 @import '../../../../sass/variables/colors.sass'
 @import '../../../../sass/variables/mixins.sass'
+@import '../../../../sass/media-queires/media'
 
 .day-status
     @include flex-Vcenter-Hcenter
@@ -16,3 +17,5 @@
         padding: .7rem 1rem
         border-radius: .8rem
         box-shadow: $box-shadow-day-status
+        @include respond(phone-first)
+            padding: 0

@@ -1,5 +1,6 @@
 @import '../../../../sass/variables/colors.sass'
 @import '../../../../sass/variables/mixins.sass'
+@import '../../../../sass/media-queires/media'
 
 .other-indicators
     display: grid
@@ -9,12 +10,23 @@
     box-shadow: $box-shadow-other-indicators
     background: $background-other-indicators
     color: $color-other-indicators
+    @include respond(phone-first)
+        grid-template-rows: repeat(2,1fr)
+        grid-template-columns: repeat(2,1fr)
     // background: transparent
     &__relative-humadity
         @include flex-Vcenter-Hcenter
+        @include respond(phone-first)
+            grid-area: 1/1/2/2
     &__wind-speed
         @include flex-Vcenter-Hcenter
+        @include respond(phone-first)
+            grid-area: 2/1/-1/2
     &__wind-direction
         @include flex-Vcenter-Hcenter
+        @include respond(phone-first)
+            grid-area: 1/2/2/-1
     &__pressure
         @include flex-Vcenter-Hcenter
+        @include respond(phone-first)
+            grid-area: 2/2/-1/-1

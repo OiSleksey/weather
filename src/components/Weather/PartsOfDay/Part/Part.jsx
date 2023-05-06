@@ -4,6 +4,7 @@ import '../PartsOfDay.sass';
 import './Part.sass';
 import { weatherPartSelected } from '../../../../redux/actions/partsOfDayWeather.actions';
 import { pastePartsSelector } from '../../../../redux/selectors/partsOfDay.selectors/datePartsOfDay.selector';
+import PropTypes from 'prop-types';
 
 const Part = ({
   dataWeather,
@@ -59,6 +60,15 @@ const Part = ({
     </div>
   );
 };
+
+Part.propTypes = {
+  dataWeather: PropTypes.array.isRequired,
+  setSelectedPart: PropTypes.func.isRequired,
+  selectedPart: PropTypes.array.isRequired,
+  isRefHour: PropTypes.object,
+  partData: PropTypes.object.isRequired,
+};
+
 const mapDispatch = {
   setSelectedPart: weatherPartSelected,
 };

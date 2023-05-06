@@ -2,12 +2,14 @@ import {
   TOGGLE_TIMES_OF_DAY,
   LOAD_PAGE,
   TOGGLE_WEEK,
+  MOBILE_SIZE,
 } from '../actions/stateUI.action';
 
 const initialState = {
   stateToggle: true,
   isLoadPage: false,
   isWeek: false,
+  isMobileSize: false,
 };
 
 export const stateUIReducer = (state = initialState, action) => {
@@ -28,6 +30,12 @@ export const stateUIReducer = (state = initialState, action) => {
       return {
         ...state,
         isWeek: !state.isWeek,
+      };
+    }
+    case MOBILE_SIZE: {
+      return {
+        ...state,
+        isMobileSize: action.payload.bool,
       };
     }
     default:

@@ -7,7 +7,7 @@ import Pressure from './Pressure/Pressure';
 import '../DetailsWeather.sass';
 import './OtherIndicators.sass';
 
-const OtherIndicators = props => {
+const OtherIndicators = () => {
   return (
     <div className="detail__other-indicators other-indicators">
       <RelativeHumadity />

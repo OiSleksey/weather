@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { weatherTemperatureSelector } from '../../../../redux/selectors/detailsWeather.selectors/detailsDataWeather.selector';
 import '../DetailsWeather.sass';
 import './TemperatureNow.sass';
+import PropTypes from 'prop-types';
 
 const TemperatureNow = ({ temperature }) => {
   if (!temperature) {
@@ -25,10 +26,10 @@ const TemperatureNow = ({ temperature }) => {
   // }
   return (
     <div className="detail__temperature-main temperature-main row">
-      <div className="temperature-main__quantity col-md-6">
+      <div className="temperature-main__quantity col-6">
         <h1 className="temperature-main__text">{correctTemperature}</h1>
       </div>
-      <div className="temperature-main__img-box col-md-6">
+      <div className="temperature-main__img-box col-6">
         <img
           src="./img/temperature.png"
           alt="temperature-main"
@@ -37,6 +38,10 @@ const TemperatureNow = ({ temperature }) => {
       </div>
     </div>
   );
+};
+
+TemperatureNow.propTypes = {
+  temperature: PropTypes.string,
 };
 
 const mapState = state => {

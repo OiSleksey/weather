@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { weatherRelativeHumiditySelector } from '../../../../../redux/selectors/detailsWeather.selectors/detailsDataWeather.selector';
 import '../OtherIndicators.sass';
 import './RelativeHumadity.sass';
+import PropTypes from 'prop-types';
 
 const RelativeHumadity = ({ relativeHumadity }) => {
   if (!relativeHumadity) {
@@ -39,6 +40,10 @@ const RelativeHumadity = ({ relativeHumadity }) => {
       </div>
     </div>
   );
+};
+
+RelativeHumadity.propTypes = {
+  relativeHumadity: PropTypes.string,
 };
 
 const mapState = state => {

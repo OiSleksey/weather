@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import '../HoursOfDay.sass';
 import './Hour.sass';
 import { pasteTimesSelector } from '../../../../redux/selectors/hoursOfDay.selectors/dateHoursOfDay.selector';
+import PropTypes from 'prop-types';
 
 import {
   weatherHourSelected,
@@ -12,7 +13,6 @@ import {
 
 const Hour = ({
   dataWeather,
-  timeDateNow,
   setSelectedHour,
   selectedHour,
   isRefHour,
@@ -31,29 +31,31 @@ const Hour = ({
   const temperature =
     dataWeather[1] > 0 ? '+' + dataWeather[1] : dataWeather[1];
   const weatherCode = dataWeather[2];
-  let styleActive = selectedHour[currentHour]
-    ? 'hours-of-day__part-one hour hour_active'
-    : 'hours-of-day__part-one hour';
+  let styleActive = selectedHour[currentHour] ? ' hour hour_active' : ' hour';
   if (hourData.isFirstDay && hourData.hourNow >= currentHour + 1)
     styleActive = styleActive + ' hour_passed';
+  const displayHour = currentHour.toString().padStart(2, 0);
   // const stylePast = hourNow
   return (
-    <div className={styleActive} onClick={() => setSelectedHour(currentHour)}>
-      <div className="hour__times-box">
-        <h5 className="hour__times">{currentHour}:00</h5>
-      </div>
-      {/* <div className="hour__times-box">
+    <div className="hours-of-day__hour-box hour-box">
+      <div className={styleActive} onClick={() => setSelectedHour(currentHour)}>
+        <div className="hour__times-box">
+          <h5 className="hour__times">{displayHour}:00</h5>
+        </div>
+        {/* <div className="hour__times-box">
         <h5 className="hour__times">Loading...</h5>
       </div> */}
-      <div className="hour__img-box">
-        <img
-          src={`./img/weather-code/weathercode-${weatherCode}.png`}
-          alt="weathercode"
-          className="hour__img"
-        />
-      </div>
-      <div className="hour__temperature-box">
-        <h5 className="hour__temperature">{temperature} С&deg;</h5>
+        <div className="hour__img-box" style={{ pointeeEvents: 'none' }}>
+          <img
+            src={`./img/weather-code/weathercode-${weatherCode}.png`}
+            alt="weathercode"
+            className="hour__img"
+            style={{ pointerEvents: 'none' }}
+          />
+        </div>
+        <div className="hour__temperature-box">
+          <h5 className="hour__temperature">{temperature} С&deg;</h5>
+        </div>
       </div>
     </div>
   );
@@ -83,6 +85,15 @@ const Hour = ({
   //   </div>
   // );
 };
+
+Hour.propTypes = {
+  dataWeather: PropTypes.array.isRequired,
+  setSelectedHour: PropTypes.func.isRequired,
+  selectedHour: PropTypes.array.isRequired,
+  isRefHour: PropTypes.object.isRequired,
+  hourData: PropTypes.object.isRequired,
+};
+
 const mapDispatch = {
   setSelectedHour: weatherHourSelected,
 };

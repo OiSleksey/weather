@@ -1,16 +1,22 @@
 @import '../../../../sass/variables/colors.sass'
 @import '../../../../sass/variables/mixins.sass'
+@import '../../../../sass/media-queires/media'
 
 .location
     display: grid
     grid-template-columns: 1fr 6fr
     padding: .4rem
     background: $background-location__test
+    @include respond(phone-first)
+        @include flex-Vcenter-Hstart
     &__img-box
         @include flex-Vcenter-Hend
     &__img
         width: 80%
         filter: $drop-shadow-location
+        @include respond(phone-first)
+            width: auto
+            height: 4rem
     &__text-box
         @include flex-Vcenter-Hstart
     &__text

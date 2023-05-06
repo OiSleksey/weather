@@ -1,5 +1,5 @@
 import React from 'react';
-import '../PartsOfWeek.sass';
+// import '../DaysOfWeek-test.sass';
 import './OneDay.sass';
 import PropTypes from 'prop-types';
 
@@ -9,36 +9,10 @@ const OneDay = ({
   setSelectedWeekday,
   selectedWeekday,
 }) => {
+  if (!dateData || !weatherData) return null;
   const selectedStyle = selectedWeekday
     ? 'week__day one-day one-day_active'
     : 'week__day one-day';
-  if (!dateData || !weatherData)
-    return (
-      <div
-        onClick={() => {
-          setSelectedWeekday();
-          console.log('OneDay');
-        }}
-        className={selectedStyle}
-      >
-        <div
-          className="one-day__img-box"
-          onClick={() => {
-            console.log(dateData, weatherData);
-          }}
-        >
-          <h6>Loading...</h6>
-        </div>
-        <div className="day-first__day one-day__data-box data-box">
-          <div className="data-box__name-day">
-            <h4 className="data-box__title">Loading...</h4>
-          </div>
-          <div className="data-box__temperature">
-            <h4 className="data-box__indicators">Loading...</h4>
-          </div>
-        </div>
-      </div>
-    );
   const weekday = dateData.weekdayName;
   const date = dateData.day;
   const month = dateData.month;
@@ -73,13 +47,11 @@ const OneDay = ({
   );
 };
 
-// OneDay.propTypes = {
-//   dayNameAndData: PropTypes.shape().isRequired,
-//   weatherData: PropTypes.shape().isRequired,
-//   // createNewTask: PropTypes.func.isRequired,
-//   // updateTask: PropTypes.func.isRequired,
-//   // deleteTask: PropTypes.func.isRequired,
-//   // tasks: PropTypes.array.isRequired,
-// };
+OneDay.propTypes = {
+  dateData: PropTypes.object,
+  weatherData: PropTypes.object,
+  setSelectedWeekday: PropTypes.func,
+  selectedWeekday: PropTypes.bool,
+};
 
 export default OneDay;

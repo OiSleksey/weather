@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import '../DetailsWeather.sass';
 import './WeatherCode.sass';
 import { weatherCodeSelector } from '../../../../redux/selectors/detailsWeather.selectors/detailsDataWeather.selector';
-const WeatherCode = props => {
-  // console.log(props.weatherData);
-  if (!props.weatherData) {
+import PropTypes from 'prop-types';
+
+const WeatherCode = ({ weatherCode }) => {
+  if (!weatherCode) {
     return (
       <div className="detail__state-weather state-weather">
         <div className="state-weather__img-box">
@@ -27,8 +28,7 @@ const WeatherCode = props => {
       <div className="detail__state-weather state-weather">
         <div className="state-weather__img-box">
           <img
-            onClick={() => console.log(props.weatherData)}
-            src={`./img/weather-code/weathercode-${props.weatherData}.png`}
+            src={`./img/weather-code/weathercode-${weatherCode}.png`}
             alt="weather-code"
             className="state-weather__img"
           />
@@ -38,14 +38,18 @@ const WeatherCode = props => {
   );
 };
 
+WeatherCode.propTypes = {
+  weatherCode: PropTypes.string,
+};
+
 const mapState = state => {
   return {
-    weatherData: weatherCodeSelector(state),
+    weatherCode: weatherCodeSelector(state),
   };
 };
 
 function propsAreEqual(prevProps, nextProps) {
-  const boolValue = prevProps.weatherData === nextProps.weatherData;
+  const boolValue = prevProps.weatherCode === nextProps.weatherCode;
   return boolValue;
 }
 

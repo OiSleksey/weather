@@ -4,6 +4,7 @@ import './LocationTown.sass';
 import { connect } from 'react-redux';
 // import { getLocationDispatchWeather } from '../../../../redux/middleware/weatherThunk';
 import { namePositionSelector } from '../../../../redux/selectors/locationName.selectors/locationName.selector';
+import PropTypes from 'prop-types';
 
 const LocationTown = ({ namePosition }) => {
   ///
@@ -39,6 +40,11 @@ const LocationTown = ({ namePosition }) => {
     </div>
   );
 };
+
+LocationTown.propTypes = {
+  namePosition: PropTypes.string,
+};
+
 const mapState = state => {
   return {
     // location: locationSelector(state),

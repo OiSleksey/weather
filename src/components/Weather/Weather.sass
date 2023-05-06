@@ -1,3 +1,6 @@
+@import '../../sass/media-queires/media'
+@import '../../sass/variables/mixins'
+@import '../../sass/media-queires/media'
 
 .weather
     // width: 77.9rem
@@ -5,7 +8,10 @@
     padding: 0
     flex-wrap: nowrap
     position: relative
+    @include respond(phone-first)
+        @include flex-Vcenter-Hcenter
     &__main
+
     &__sidebar
 
 .main
@@ -22,9 +28,16 @@
     border-bottom-left-radius: 16rem
     // flex: none
     padding: 0
+    @include respond(phone-first)
+        height: auto
+        width: 90%
+
     &__detail
         grid-column: 1/-1
         grid-row: 1/10
+        @include respond(phone-first)
+            grid-row: 2/11
+
     // &__week
     //     grid-column: 17/-1
     //     grid-row: 1/-1
@@ -32,18 +45,28 @@
         background: pink
         grid-column: 1/-1
         grid-row: 10/-1
+        @include respond(phone-first)
+            grid-row: 11/-2
     &__hours-of-day
         grid-column: 1/-1
         grid-row: 10/-1
+        @include respond(phone-first)
+            grid-row: 11/-2
 
 .sidebar
     // flex: none
     position: relative
     padding: 0
+    z-index: 2
     &_active
         position: absolute
         top: 0
-        right: 6.3rem
+        left: 3.5rem
         z-index: 2
         // top: 4rem
         // right: 1.6rem
+        @include respond(tab-port-second)
+            left: 18rem
+        @include respond(phone-first)
+            top: 9rem
+            left: 16rem

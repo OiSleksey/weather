@@ -3,6 +3,7 @@ import '../OtherIndicators.sass';
 import './WindDirection.sass';
 import { weatherWindDirectionSelector } from '../../../../../redux/selectors/detailsWeather.selectors/detailsDataWeather.selector';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const WindDirection = ({ windDirection }) => {
   if (!windDirection) {
@@ -39,6 +40,10 @@ const WindDirection = ({ windDirection }) => {
       </div>
     </div>
   );
+};
+
+WindDirection.propTypes = {
+  windDirection: PropTypes.object,
 };
 
 const mapState = state => {
