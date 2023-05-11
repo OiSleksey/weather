@@ -2,6 +2,7 @@ import React from 'react';
 // import '../DaysOfWeek-test.sass';
 import './OneDay.sass';
 import PropTypes from 'prop-types';
+// import images from '../../../../img/weather-code';
 
 const OneDay = ({
   dateData,

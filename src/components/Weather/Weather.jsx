@@ -18,15 +18,6 @@ import {
   BrowserRouter,
 } from 'react-router-dom';
 
-// import store from '../redux/store';
-// import {
-//   useTransition,
-//   useSpring,
-//   useChain,
-//   config,
-//   animated,
-//   useSpringRef,
-// } from '@react-spring/web';
 const mediaQuery = window.matchMedia('(max-width: 951px)');
 
 const Weather = ({
@@ -37,12 +28,6 @@ const Weather = ({
   startLoadPage,
   setMediaSize,
 }) => {
-  // console.log(stateUI);
-  // console.log(getLocationWeather);
-  // console.log(weatherData);
-  // console.log(getTime);
-  // console.log(startLoadPage);
-  // console.log(setMediaSize);
   window.addEventListener('load', () => {
     startLoadPage();
   });
@@ -68,12 +53,14 @@ const Weather = ({
   const isRefHour = useRef(false);
   const isRefPart = useRef(false);
 
+  //Show weather by hour/time of day
   const visibleTimesOfday = stateUI.stateToggle ? (
     <HoursOfDay sendRefHour={isRefHour} />
   ) : (
     <PartsOfDay sendRefPart={isRefPart} />
   );
   let loader = <LoaderBars />;
+  // loader = null;
   if (weatherData && weatherData.temperature && stateUI.isLoadPage)
     loader = null;
 

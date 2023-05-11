@@ -3,6 +3,7 @@ import {
   LOAD_PAGE,
   TOGGLE_WEEK,
   MOBILE_SIZE,
+  ERROR,
 } from '../actions/stateUI.action';
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
   isLoadPage: false,
   isWeek: false,
   isMobileSize: false,
+  isError: false,
 };
 
 export const stateUIReducer = (state = initialState, action) => {
@@ -36,6 +38,12 @@ export const stateUIReducer = (state = initialState, action) => {
       return {
         ...state,
         isMobileSize: action.payload.bool,
+      };
+    }
+    case ERROR: {
+      return {
+        ...state,
+        isError: action.payload.bool,
       };
     }
     default:

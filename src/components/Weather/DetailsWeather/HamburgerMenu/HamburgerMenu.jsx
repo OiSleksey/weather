@@ -5,16 +5,16 @@ import { Sling as Hamburger } from 'hamburger-react';
 import { toggleWeek } from '../../../../redux/actions/stateUI.action';
 import PropTypes from 'prop-types';
 
-const HamburgerMenu = ({ isUi, setStateToggle }) => {
-  if (!isUi || !setStateToggle) return null;
-  const isMobileSize = isUi.isMobileSize;
+const HamburgerMenu = ({ isUI, setStateToggle }) => {
+  if (!isUI || !setStateToggle || isUI.isError) return null;
+  const isMobileSize = isUI.isMobileSize;
   const activeHamburger = isMobileSize
     ? 'detail__hamburger hamburger  hamburger_active'
     : 'detail__hamburger hamburger';
   return (
     <div className={activeHamburger}>
       <Hamburger
-        toggled={isUi.isWeek}
+        toggled={isUI.isWeek}
         toggle={setStateToggle}
         size={26}
         // style={{ width: '4rem' }}
@@ -29,13 +29,13 @@ const HamburgerMenu = ({ isUi, setStateToggle }) => {
 };
 
 HamburgerMenu.propTypes = {
-  isUi: PropTypes.object.isRequired,
+  isUI: PropTypes.object.isRequired,
   setStateToggle: PropTypes.func.isRequired,
 };
 
 const mapState = state => {
   return {
-    isUi: state.isUI,
+    isUI: state.isUI,
   };
 };
 const mapDispath = {

@@ -1,16 +1,25 @@
-import * as getWeather from './getWether';
-import { dateCurrency } from './getTime';
-
+const errorHandling = value => {
+  const dataError = {
+    error: {
+      message: `${value}. Sorry, we're working on it.`,
+    },
+  };
+  return dataError;
+};
 //Получение города
 export const getPosition = async function (lat, lng) {
-  const response = await fetch(
-    `https://nominatim.openstreetmap.org/reverse?format=geojson&lat=${lat}&lon=${lng}`
-  );
-  const data = await response.json();
-  const location = data.features[0].properties;
-  // console.log(location);
-  // nameWeatherLocation.textContent = `Weather in ${location}`;
-  return location;
+  try {
+    const response = await fetch(
+      `https://nominatim.openstreetmap.org/reverse?format=geojson&lat=${lat}&lon=${lng}&accept-language=en`
+    );
+    if (!response.ok) {
+      return errorHandling(`Error ${response.status}`);
+    }
+    const resolve = await response.json();
+    return resolve.features[0].properties;
+  } catch (e) {
+    return errorHandling(e.message);
+  }
 };
 
 export const getLocation = async function () {
@@ -37,16 +46,17 @@ export const getLocation = async function () {
     //   lon: 30.53539719731239,
     //   realCoordinates: false,
     // });
-    // return {
-    //   lat: 50.448135102839025,
-    //   lon: 30.53539719731239,
-    //   realCoordinates: false,
-    // };
     return {
-      lat: 70.6221817,
-      lon: 147.8955685,
+      lat: 50.448135102839025,
+      lon: 30.53539719731239,
       realCoordinates: false,
     };
+    //Chokurdakh
+    // return {
+    //   lat: 70.6221817,
+    //   lon: 147.8955685,
+    //   realCoordinates: false,
+    // };
   }
 };
 

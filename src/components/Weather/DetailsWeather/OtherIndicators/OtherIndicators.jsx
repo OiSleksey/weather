@@ -6,16 +6,72 @@ import WindDirection from './WindDirection/WindDirection';
 import Pressure from './Pressure/Pressure';
 import '../DetailsWeather.sass';
 import './OtherIndicators.sass';
+import { dayStatusSelector } from './../../../../redux/selectors/detailsWeather.selectors/dayStatus.selector';
+import PropTypes from 'prop-types';
+import { motion } from 'framer-motion';
 
-const OtherIndicators = () => {
+const textVariants = {
+  hidden: custom => ({
+    opacity: 0,
+    translateX: '-120%',
+    transition: {
+      duration: 0,
+    },
+  }),
+  visible: custom => ({
+    opacity: 1,
+    translateX: '0',
+    transition: {
+      duration: 0.3,
+      delay: custom * 0.2,
+      type: 'spring',
+    },
+  }),
+};
+
+const OtherIndicators = ({ dayStatus }) => {
+  if (!dayStatus) return null;
+  const indicators = [
+    <RelativeHumadity />,
+    <WindSpeed />,
+    <WindDirection />,
+    <Pressure />,
+  ];
   return (
-    <div className="detail__other-indicators other-indicators">
-      <RelativeHumadity />
-      <WindSpeed />
-      <WindDirection />
-      <Pressure />
-    </div>
+    <motion.div
+      className="detail__other-indicators other-indicators"
+      // key={namePosition}
+      variants={textVariants}
+      initial={'hidden'}
+      animate={'visible'}
+      key={dayStatus.hourOrPart + dayStatus.weekdayName}
+    >
+      {indicators.map((component, index) => (
+        <motion.div
+          key={index}
+          variants={textVariants}
+          initial={'hidden'}
+          animate={'visible'}
+          custom={index + 1}
+          // transition={{
+          //   type: 'spring',
+          // }}
+        >
+          {component}
+        </motion.div>
+      ))}
+    </motion.div>
   );
 };
 
-export default OtherIndicators;
+OtherIndicators.propTypes = {
+  dayStatus: PropTypes.object,
+};
+
+const mapState = state => {
+  return {
+    dayStatus: dayStatusSelector(state),
+  };
+};
+
+export default connect(mapState)(OtherIndicators);

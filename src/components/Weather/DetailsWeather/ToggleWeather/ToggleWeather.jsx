@@ -4,46 +4,73 @@ import '../DetailsWeather.sass';
 import './ToggleWeather.sass';
 import { toggleTimesOfDay } from '../../../../redux/actions/stateUI.action';
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const ToggleWeather = ({ stateToggle, toggleTimesOfDay }) => {
-  const spring = {
-    type: 'spring',
-    stiffness: 700,
-    damping: 30,
-  };
+const spring = {
+  type: 'spring',
+  stiffness: 700,
+  damping: 30,
+};
 
+const textVariants = {
+  hidden: custom => ({
+    opacity: 0,
+    translateX: '-120%',
+    transition: {
+      duration: 0,
+    },
+  }),
+  visible: custom => ({
+    opacity: 1,
+    translateX: '0',
+    transition: {
+      duration: 0.5,
+      delay: 0.2,
+      type: 'spring',
+    },
+  }),
+};
+const ToggleWeather = ({ isUI, toggleTimesOfDay }) => {
+  if (!isUI || isUI.isError) return null;
+
+  const typeTimeWeather = isUI.stateToggle ? 'hours' : 'time of day';
   return (
-    // <div className="detail__toggle toggle">
-    //   <div className="toggle__checkbox-box">
-    //     <input
-    //       type="checkbox"
-    //       className="toggle__checkbox"
-    //       onChange={toggleTimesOfDay}
-    //       checked={stateToggle}
-    //     />
-    //   </div>
-    // </div>
     <div className="detail__toggle toggle">
       <div
         className="switch"
-        data-ison={stateToggle}
+        data-ison={isUI.stateToggle}
         onClick={toggleTimesOfDay}
       >
         <motion.div className="switch__handle" layout transition={spring} />
       </div>
+      <AnimatePresence mode="out-in">
+        <motion.div className="toggle__content">
+          <motion.h4
+            className="toggle__title"
+            key={typeTimeWeather}
+            variants={textVariants}
+            initial={'hidden'}
+            animate={'visible'}
+            exit={'hidden'}
+          >
+            Show weather by
+            <br />
+            <span className="toggle__span">{typeTimeWeather}</span>
+          </motion.h4>
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 };
 
 ToggleWeather.propTypes = {
-  stateToggle: PropTypes.bool.isRequired,
+  isUI: PropTypes.object.isRequired,
   toggleTimesOfDay: PropTypes.func.isRequired,
 };
 
 const mapState = state => {
   return {
-    stateToggle: state.isUI.stateToggle,
+    isUI: state.isUI,
   };
 };
 const mapDispatch = {

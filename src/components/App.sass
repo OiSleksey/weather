@@ -1,7 +1,18 @@
 @import '../sass/media-queires/media'
+@import '../sass/variables/colors'
 
-// html
-//     font-size: 62.7%
+*
+    box-sizing: border-box
+    user-select: none
+
+html
+    height: 100%
+body
+    min-height: 100%
+body
+    background-color: $background-body
+    background: $background-linear-body
+
 html
     font-size: 62.5%
     @include respond(tab-port-first)
@@ -15,23 +26,13 @@ html
     // @include respond(phone-second)
     //     font-size: 30%
 
-*
-    box-sizing: border-box
-    user-select: none
-
-body
-    background-color: #686563
-    width: 100%
-    // overflow: hidden
-    // overflow: auto
-
 .container
-    // padding: 10rem 0
     &__main
         padding: 10rem 0
-        background: yellow
         font-size: 2rem
         height: 100vh
         display: flex
         justify-content: center
         align-items: center
+        position: relative
+        z-index: 4

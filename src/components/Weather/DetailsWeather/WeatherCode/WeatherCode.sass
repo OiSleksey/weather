@@ -7,7 +7,10 @@
     @include flex-Vcenter-Hcenter
     &__img-box
         width: 100%
+        overflow: hidden
+        text-align: center
     &__img
+        margin: 0 auto
         width: 80%
         filter: $drop-shadow-weather-code
         @include respond(phone-first)

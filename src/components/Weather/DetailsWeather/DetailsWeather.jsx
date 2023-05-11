@@ -7,6 +7,7 @@ import OtherIndicators from './OtherIndicators/OtherIndicators';
 import ToggleWeather from './ToggleWeather/ToggleWeather';
 import NameApp from './NameApp/NameApp';
 import HamburgerMenu from './HamburgerMenu/HamburgerMenu';
+import LoaderBars from '../UI/LoaderBars/LoaderBars';
 
 import '../../../components/App.sass';
 import './DetailsWeather.sass';

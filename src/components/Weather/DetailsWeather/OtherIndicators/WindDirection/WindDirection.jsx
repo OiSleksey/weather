@@ -6,24 +6,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 const WindDirection = ({ windDirection }) => {
-  if (!windDirection) {
-    return (
-      <div className="other-indicators__wind-direction wind-direction">
-        <div className="wind-direction__box">
-          <div className="wind-direction__img-box">
-            <img
-              src="./img/wind-direction/direction-1.png"
-              alt="wind-direction"
-              className="wind-direction__img"
-            />
-          </div>
-          <div className="wind-direction__data-box">
-            <h5 className="wind-direction__data-text">Loading...</h5>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  if (!windDirection) return null;
   return (
     <div className="other-indicators__wind-direction wind-direction">
       <div className="wind-direction__box">
