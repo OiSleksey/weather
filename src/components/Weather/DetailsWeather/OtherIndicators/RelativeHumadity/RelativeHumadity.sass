@@ -1,7 +1,10 @@
 @import '../../../../../sass/variables/colors.sass'
 @import '../../../../../sass/variables/mixins.sass'
+@import '../../../../../sass/media-queires/media'
 
 .relative-humadity
+    // @include respond(phone-first)
+    //     @include flex-Vcenter-Hstart
     &__box
         display: grid
         grid-template-columns: 1fr 3fr
@@ -11,11 +14,14 @@
         box-shadow: $box-shadow-indicator
         background: $background-indicator
         padding: 0.1rem 0.5rem
+
     &__img-box
         @include flex-Vcenter-Hend
     &__img
         width: 100%
         filter: $drop-shadow-indicator
+        @include respond(phone-first)
+            width: 4rem
     &__data-box
         @include flex-Vcenter-Hstart
     &__data-text

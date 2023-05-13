@@ -29,16 +29,22 @@ const DaysOfWeek = ({ isUI }) => {
   const listvariants = {
     hidden: custom => ({
       opacity: 0,
-      x: 0,
+      // x: 0,
+      width: 0,
       transition: {
+        // type: 'spring',
+        // duration: 0.3,
         // duration: 0.1,
         delay: custom * 0.05,
       },
     }),
     visible: custom => ({
       opacity: 1,
-      x: -90,
+      width: 'auto',
+      // x: -90,
       transition: {
+        type: 'spring',
+        // duration: 0.3,
         // duration: 0.1,
         delay: custom * 0.05,
       },
@@ -48,24 +54,34 @@ const DaysOfWeek = ({ isUI }) => {
     <motion.div key={index}>{component}</motion.div>
   ));
   const mobileVersion = items.map((component, index) => (
-    <AnimatePresence key={index}>
-      {isWeek && (
-        <motion.div
-          variants={listvariants}
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          custom={index + 1}
-        >
-          {component}
-        </motion.div>
-      )}
-    </AnimatePresence>
+    // <AnimatePresence>
+    //   {isWeek && (
+    //     <motion.div
+    //       variants={listvariants}
+    //       initial="hidden"
+    //       animate="visible"
+    //       exit="hidden"
+    //       custom={index + 1}
+    //       animate={isWeek ? "visible" : "hidden"}
+    //     >
+    //       {component}
+    //     </motion.div>
+    //   )}
+
+    <motion.div
+      variants={listvariants}
+      // initial="hidden"
+      // animate="visible"
+      // exit="hidden"
+      key={index}
+      custom={index + 1}
+      animate={isWeek ? 'visible' : 'hidden'}
+    >
+      {component}
+    </motion.div>
   ));
-  // </motion.div>
 
   const activeVersion = isMobileSize ? mobileVersion : desktopVersion;
-  //d-xxl-none
 
   return <div className="sidebar__week week ">{activeVersion}</div>;
 };

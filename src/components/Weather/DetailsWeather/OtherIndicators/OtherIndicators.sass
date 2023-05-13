@@ -14,20 +14,29 @@
     @include respond(phone-first)
         grid-template-rows: repeat(2,1fr)
         grid-template-columns: repeat(2,1fr)
+        place-items: center
+        grid-column-gap: 3rem
+        padding-left: 4rem
+        // margin-bottom: 3rem
+        // justify-content: center
     // background: transparent
     &__relative-humadity
         @include flex-Vcenter-Hcenter
         @include respond(phone-first)
             grid-area: 1/1/2/2
+            // width: max-content
     &__wind-speed
         @include flex-Vcenter-Hcenter
         @include respond(phone-first)
             grid-area: 2/1/-1/2
+            // width: max-content
     &__wind-direction
         @include flex-Vcenter-Hcenter
         @include respond(phone-first)
             grid-area: 1/2/2/-1
+            // width: max-content
     &__pressure
         @include flex-Vcenter-Hcenter
         @include respond(phone-first)
             grid-area: 2/2/-1/-1
+            // width: max-content

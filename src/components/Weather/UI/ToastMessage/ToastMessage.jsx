@@ -48,7 +48,6 @@ const ToastMessage = ({ weatherData, stateLoadPage, isRefToast, setError }) => {
 
   if (!isRefToast.current) {
     isRefToast.current = true;
-    console.log(setError);
     let stateError = false;
     for (const props in weatherData) {
       if (weatherData[props].error) {

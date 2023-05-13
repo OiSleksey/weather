@@ -2,7 +2,6 @@ import React, { useEffect, memo } from 'react';
 import { connect } from 'react-redux';
 import '../DetailsWeather.sass';
 import './DayStatus.sass';
-// import { getTimeDateNow } from '../../../../redux/actions/timeData.actions';
 import { dayStatusSelector } from './../../../../redux/selectors/detailsWeather.selectors/dayStatus.selector';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
@@ -31,12 +30,10 @@ const DayStatus = ({ dayStatus }) => {
     return <h3>Loading...</h3>;
   }
   const hourOrPart = dayStatus.hourOrPart;
-  console.log(hourOrPart);
   const weekday = dayStatus.weekdayName;
   const day = dayStatus.day;
   const month = dayStatus.month;
   const displayDayTime = `${weekday} ${day}.${month} ${hourOrPart}`;
-  // console.log(props);
   return (
     <>
       <div className="detail__day-status day-status">
@@ -50,7 +47,6 @@ const DayStatus = ({ dayStatus }) => {
           >
             {displayDayTime}
           </motion.h3>
-          {/* <button onClick={() => console.log(props.timeDateNow)}>CLICk</button> */}
         </div>
       </div>
     </>
@@ -59,11 +55,12 @@ const DayStatus = ({ dayStatus }) => {
 
 DayStatus.propTypes = {
   dayStatus: PropTypes.object,
+  // timeDateNow: PropTypes.string,
 };
 
 const mapState = state => {
   return {
-    timeDateNow: state.timeDateNow,
+    // timeDateNow: state.timeDateNow,
     dayStatus: dayStatusSelector(state),
   };
 };

@@ -19,10 +19,7 @@
     background: $background-hours-of-day
     display: flex
     // width: 100%
-    border-top-right-radius: 100rem
-    border-bottom-left-radius: 100rem
-    border-top-left-radius: 40rem
-    border-bottom-right-radius: 40rem
+    @include special-border-radius
     white-space: nowrap
     padding-left: 0.3rem
     position: relative
@@ -32,6 +29,7 @@
         overflow: hidden
     @include respond(phone-first)
         // max-height: 60%
+        left: 0
         overflow: hidden
     &::before
         background: transparent

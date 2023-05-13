@@ -27,8 +27,8 @@ const HoursOfDay = ({ dataWeather, sendRefHour, hourNow }) => {
   const handleMouseWheel = event => {
     if (currentIndex < 0) {
       return setCurrentIndex(0);
-    } else if (arrTemperatureWeatherCode.length - 3 < currentIndex) {
-      setCurrentIndex(arrTemperatureWeatherCode.length - 3);
+    } else if (arrTemperatureWeatherCode.length - 2 < currentIndex) {
+      setCurrentIndex(arrTemperatureWeatherCode.length - 2);
       return;
     } else if (event.deltaY < 0) {
       setCurrentIndex(currentIndex - 1);
@@ -60,8 +60,8 @@ const HoursOfDay = ({ dataWeather, sendRefHour, hourNow }) => {
     //   },
     // },
     swipeDelta: 5,
-    paddingLeft: 100,
-    paddingRight: 100,
+    paddingLeft: 90,
+    paddingRight: 90,
     // autoPlayControls: true,
     // autoHeight: true,
     // animationType: 'fadeout'

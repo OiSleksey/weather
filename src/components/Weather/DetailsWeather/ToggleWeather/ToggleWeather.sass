@@ -1,39 +1,103 @@
 @import '../../../../sass/variables/mixins'
 @import '../../../../sass/variables/colors'
+@import '../../../../sass/media-queires/media'
+
+// .toggle
+//     background: $background-toggle
+//     filter: $drop-shadow-toggle
+//     @include flex-Vcenter-Hstart
+//     &__content
+//         color: $color-toggle
+//         text-align: left
+//         margin: 0 auto
+//         overflow: hidden
+//     &__title
+//         margin: 0
+//         margin-right: 1rem
+//         text-align: left
+//     &__span
+//         color: #E6E32B
+
+// .switch
+//     @include flex-Vcenter-Hstart
+//     border-radius: 2.5rem
+//     // box-shadow: inset 0 1px 4px hsla(0,0%,0%,.5), inset 0 0 10px hsla(0,0%,0%,.5)0 0 0 1px hsla(0,0%,0%,.1), 0 -1px 2px 2px hsla(0,0%,0%,.25), 0 2px 2px 2px hsla(0,0%,100%,.75)
+//     cursor: pointer
+//     height: 3.5rem
+//     width: 7.5rem
+//     background-color: rgba(255, 255, 255, 0.4)
+//     box-shadow: inset 0 0 5px 5px rgba(0,0,0,0.2)
+//     border-radius: 50px
+//     padding: 1rem
+//     // margin-right: 1rem
+//     &[data-ison="false"]
+//         justify-content: flex-end
+//     &__handle
+//         height: 2.1rem
+//         width: 2.1rem
+//         background-color: white
+//         box-shadow: inset 0 0 5px 5px rgba(0,0,0,0.1)
+//         border-radius: 40px
 
 .toggle
     background: $background-toggle
     filter: $drop-shadow-toggle
-    @include flex-Vcenter-Hstart
-    &__content
+    @include flex-Vcenter-Hcenter
+    &__main
         color: $color-toggle
-        text-align: left
-        margin: 0 auto
         overflow: hidden
-    &__title
+        @include flex-Vcenter-Hcenter
+        background-color: #000000cc
+        @include special-border-radius
+    &__text-box
+        padding: 1rem 0 1.2rem 3rem
+        margin-right: .7rem
+        @include respond(tab-port-second)
+            padding: 1rem 0 1.6rem 3rem
+    &__text
         margin: 0
-        margin-right: 1rem
-        text-align: left
-    &__span
-        color: #E6E32B
+        font-weight: 700
+        // padding-bottom: .3rem
 
-.switch
-    @include flex-Vcenter-Hstart
-    border-radius: 2.5rem
-    // box-shadow: inset 0 1px 4px hsla(0,0%,0%,.5), inset 0 0 10px hsla(0,0%,0%,.5)0 0 0 1px hsla(0,0%,0%,.1), 0 -1px 2px 2px hsla(0,0%,0%,.25), 0 2px 2px 2px hsla(0,0%,100%,.75)
-    cursor: pointer
-    height: 3.5rem
-    width: 7.5rem
-    background-color: rgba(255, 255, 255, 0.4)
-    box-shadow: inset 0 0 5px 5px rgba(0,0,0,0.2)
-    border-radius: 50px
-    padding: 1rem
-    // margin-right: 1rem
-    &[data-ison="false"]
-        justify-content: flex-end
-    &__handle
-        height: 2.1rem
-        width: 2.1rem
-        background-color: white
-        box-shadow: inset 0 0 5px 5px rgba(0,0,0,0.1)
-        border-radius: 40px
+    // &__title
+    //     margin: 0
+    //     margin-right: 1rem
+    //     margin-bottom: 0.3rem
+    // &__switch
+    //     color: #E6E32B
+    //     color: white
+
+// .switch
+//     display: flex
+//     border-radius: 2.5rem
+//     background-color: #000000d7
+//     box-shadow: inset 0 0 5px 5px rgba(0,0,0,0.2)
+//     padding: .7rem 1.7rem
+//     text-transform: uppercase
+//     cursor: pointer
+//     &__left
+//         margin: 0
+//         margin-right: 1rem
+//     &__right
+//         margin: 0
+
+// .switch
+//     @include flex-Vcenter-Hstart
+//     border-radius: 2.5rem
+//     // box-shadow: inset 0 1px 4px hsla(0,0%,0%,.5), inset 0 0 10px hsla(0,0%,0%,.5)0 0 0 1px hsla(0,0%,0%,.1), 0 -1px 2px 2px hsla(0,0%,0%,.25), 0 2px 2px 2px hsla(0,0%,100%,.75)
+//     cursor: pointer
+//     height: 3.5rem
+//     width: 7.5rem
+//     background-color: rgba(255, 255, 255, 0.4)
+//     box-shadow: inset 0 0 5px 5px rgba(0,0,0,0.2)
+//     border-radius: 50px
+//     padding: 1rem
+//     // margin-right: 1rem
+//     &[data-ison="false"]
+//         justify-content: flex-end
+//     &__handle
+//         height: 2.1rem
+//         width: 2.1rem
+//         background-color: white
+//         box-shadow: inset 0 0 5px 5px rgba(0,0,0,0.1)
+//         border-radius: 40px

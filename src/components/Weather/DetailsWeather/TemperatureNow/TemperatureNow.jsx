@@ -37,7 +37,6 @@ const TemperatureNow = ({ temperature, dayStatus }) => {
     );
   }
   const correctTemperature = temperature > 0 ? '+' + temperature : temperature;
-  console.log(dayStatus.hourOrPart);
   return (
     <motion.div
       className="detail__temperature-main temperature-main row"

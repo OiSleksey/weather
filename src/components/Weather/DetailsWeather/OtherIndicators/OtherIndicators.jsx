@@ -48,6 +48,7 @@ const OtherIndicators = ({ dayStatus }) => {
     >
       {indicators.map((component, index) => (
         <motion.div
+          style={{ display: 'inline-block' }}
           key={index}
           variants={textVariants}
           initial={'hidden'}

@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import '../DetailsWeather.sass';
 import './ToggleWeather.sass';
-import { toggleTimesOfDay } from '../../../../redux/actions/stateUI.action';
 import PropTypes from 'prop-types';
 import { motion, AnimatePresence } from 'framer-motion';
+import KindTime from './KindTime/KindTime';
 
-const spring = {
-  type: 'spring',
-  stiffness: 700,
-  damping: 30,
-};
+// const spring = {
+//   type: 'spring',
+//   stiffness: 700,
+//   damping: 30,
+// };
 
 const textVariants = {
   hidden: custom => ({
@@ -25,47 +25,35 @@ const textVariants = {
     translateX: '0',
     transition: {
       duration: 0.5,
-      delay: 0.2,
+      delay: 0.8,
       type: 'spring',
     },
   }),
 };
-const ToggleWeather = ({ isUI, toggleTimesOfDay }) => {
+const ToggleWeather = ({ isUI }) => {
   if (!isUI || isUI.isError) return null;
 
-  const typeTimeWeather = isUI.stateToggle ? 'hours' : 'time of day';
   return (
-    <div className="detail__toggle toggle">
-      <div
-        className="switch"
-        data-ison={isUI.stateToggle}
-        onClick={toggleTimesOfDay}
+    <AnimatePresence mode="out-in">
+      <motion.div
+        className="detail__toggle toggle"
+        variants={textVariants}
+        initial={'hidden'}
+        animate={'visible'}
       >
-        <motion.div className="switch__handle" layout transition={spring} />
-      </div>
-      <AnimatePresence mode="out-in">
-        <motion.div className="toggle__content">
-          <motion.h4
-            className="toggle__title"
-            key={typeTimeWeather}
-            variants={textVariants}
-            initial={'hidden'}
-            animate={'visible'}
-            exit={'hidden'}
-          >
-            Show weather by
-            <br />
-            <span className="toggle__span">{typeTimeWeather}</span>
-          </motion.h4>
-        </motion.div>
-      </AnimatePresence>
-    </div>
+        <div className="toggle__main">
+          <div className="toggle__text-box">
+            <h4 className="toggle__text">Show weather by</h4>
+          </div>
+          <KindTime />
+        </div>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 
 ToggleWeather.propTypes = {
   isUI: PropTypes.object.isRequired,
-  toggleTimesOfDay: PropTypes.func.isRequired,
 };
 
 const mapState = state => {
@@ -73,7 +61,5 @@ const mapState = state => {
     isUI: state.isUI,
   };
 };
-const mapDispatch = {
-  toggleTimesOfDay: toggleTimesOfDay,
-};
-export default connect(mapState, mapDispatch)(ToggleWeather);
+
+export default connect(mapState)(ToggleWeather);

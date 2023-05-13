@@ -46,11 +46,17 @@ export const getLocation = async function () {
     //   lon: 30.53539719731239,
     //   realCoordinates: false,
     // });
+    // return {
+    //   lat: 49.1252495,
+    //   lon: 33.3970259,
+    //   realCoordinates: false,
+    // };
     return {
       lat: 50.448135102839025,
       lon: 30.53539719731239,
       realCoordinates: false,
     };
+
     //Chokurdakh
     // return {
     //   lat: 70.6221817,
