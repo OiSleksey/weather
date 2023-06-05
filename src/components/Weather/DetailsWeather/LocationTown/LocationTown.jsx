@@ -26,22 +26,7 @@ const textVariants = {
 };
 
 const LocationTown = ({ namePosition }) => {
-  if (!namePosition) {
-    return (
-      <div className="detail__location location">
-        <div className="location__img-box">
-          <img
-            src="./img/location.png"
-            alt="location"
-            className="location__img"
-          />
-        </div>
-        <div className="location__text-box">
-          <h3 className="location__text">Loading...</h3>
-        </div>
-      </div>
-    );
-  }
+  if (!namePosition) return null;
 
   return (
     <div className="detail__location location">

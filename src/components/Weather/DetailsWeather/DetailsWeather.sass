@@ -24,7 +24,7 @@
             grid-area: 1/1/5/5
     &__location
         background: white
-        grid-area: 2/4/6/18
+        grid-area: 1/4/6/18
         @include respond(phone-first)
             grid-area: 4/2/7/20
             // margin: 0 auto
@@ -39,12 +39,12 @@
         background: white
         grid-area: 7/2/15/10
         @include respond(phone-first)
-            grid-area: 7/3/14/14
+            grid-area: 7/3/14/15
     &__temperature-main
         background: white
         grid-area: 7/11/15/21
         @include respond(phone-first)
-            grid-area: 7/15/14/-2
+            grid-area: 7/17/14/-2
     &__day-status
         background: white
         grid-area: 17/18/-2/-2
@@ -70,6 +70,7 @@
             grid-area: 1/-7/4/-2
 
 .return
+    display: none
     &__img-box
     &__img
         padding: .3rem

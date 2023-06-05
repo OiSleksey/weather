@@ -27,15 +27,8 @@ const textVariants = {
 };
 
 const WeatherCode = ({ weatherCode, dayStatus }) => {
-  if (!weatherCode || !dayStatus) {
-    return (
-      <div className="detail__state-weather state-weather">
-        <div className="state-weather__img-box">
-          <h3>Loading...</h3>
-        </div>
-      </div>
-    );
-  }
+  if (!weatherCode || !dayStatus) return null;
+
   // useEffect(() => {
   //   props.getWeatherCode();
   //   console.log('WeatherCode Effect');

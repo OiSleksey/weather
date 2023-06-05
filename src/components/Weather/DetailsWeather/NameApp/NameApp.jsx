@@ -1,12 +1,6 @@
 import React from 'react';
 import './NameApp.sass';
 
-import $ from 'jquery';
-
-// $('[data-text]').on('keyup', function () {
-//   $(this).attr('data-text', $(this).text());
-// });
-
 const NameApp = () => {
   return (
     <div className="detail__name-weather name-weather">

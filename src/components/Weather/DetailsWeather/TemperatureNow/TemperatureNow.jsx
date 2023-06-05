@@ -27,15 +27,7 @@ const textVariants = {
 };
 
 const TemperatureNow = ({ temperature, dayStatus }) => {
-  if (!temperature) {
-    return (
-      <div className="detail__temperature-main temperature-main">
-        <div className="temperature-main__quantity">
-          <h3>Loading</h3>
-        </div>
-      </div>
-    );
-  }
+  if (!temperature) return null;
   const correctTemperature = temperature > 0 ? '+' + temperature : temperature;
   return (
     <motion.div

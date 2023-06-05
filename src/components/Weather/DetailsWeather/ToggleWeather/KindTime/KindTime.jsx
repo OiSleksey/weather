@@ -64,7 +64,6 @@ const ActiveLine = () => {
       className="kind-time__active-line"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      // exit={{ opacity: 0 }}
     />
   );
 };

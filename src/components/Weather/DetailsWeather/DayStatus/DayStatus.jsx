@@ -26,9 +26,8 @@ const textVariants = {
 };
 
 const DayStatus = ({ dayStatus }) => {
-  if (!dayStatus) {
-    return <h3>Loading...</h3>;
-  }
+  if (!dayStatus) return null;
+
   const hourOrPart = dayStatus.hourOrPart;
   const weekday = dayStatus.weekdayName;
   const day = dayStatus.day;
