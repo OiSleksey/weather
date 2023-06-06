@@ -7,22 +7,22 @@ import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 
 const textVariants = {
-  hidden: custom => ({
+  hidden: {
     opacity: 0,
-    translateX: '-120%',
+    x: '-120%',
     transition: {
       duration: 0,
     },
-  }),
-  visible: custom => ({
+  },
+  visible: {
     opacity: 1,
-    translateX: '0',
+    x: '0',
     transition: {
       duration: 0.3,
       delay: 0.4,
       type: 'spring',
     },
-  }),
+  },
 };
 
 const DayStatus = ({ dayStatus }) => {

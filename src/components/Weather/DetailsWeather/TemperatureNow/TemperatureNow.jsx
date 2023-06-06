@@ -10,14 +10,14 @@ import { motion } from 'framer-motion';
 const textVariants = {
   hidden: custom => ({
     opacity: 0,
-    translateX: '-120%',
+    x: '-120%',
     transition: {
       duration: 0,
     },
   }),
   visible: custom => ({
     opacity: 1,
-    translateX: '0',
+    x: '0',
     transition: {
       type: 'spring',
       duration: 0.3,

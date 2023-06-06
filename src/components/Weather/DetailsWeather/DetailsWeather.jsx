@@ -25,6 +25,7 @@ const DeatailsWeather = ({ isUI }) => {
         </div>
       </div>
       <LocationTown />
+
       <NameApp />
       <WeatherCode />
       <TemperatureNow />
