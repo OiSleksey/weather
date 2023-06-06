@@ -1,29 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import '../DetailsWeather.sass';
 import './ToggleWeather.sass';
-import { toggleTimesOfDay } from '../../../../redux/actions/stateUI.action';
+import PropTypes from 'prop-types';
+import { motion, AnimatePresence } from 'framer-motion';
+import KindTime from './KindTime/KindTime';
 
-const ToggleWeather = ({ stateToggle, toggleTimesOfDay }) => {
+// const spring = {
+//   type: 'spring',
+//   stiffness: 700,
+//   damping: 30,
+// };
+
+const textVariants = {
+  hidden: custom => ({
+    opacity: 0,
+    x: '-120%',
+    transition: {
+      duration: 0,
+    },
+  }),
+  visible: custom => ({
+    opacity: 1,
+    x: '0',
+    transition: {
+      duration: 0.5,
+      delay: 0.8,
+      type: 'spring',
+    },
+  }),
+};
+const ToggleWeather = ({ isUI }) => {
+  if (!isUI || isUI.isError) return null;
+
   return (
-    <div className="detail__toggle toggle">
-      <div className="toggle__checkbox-box">
-        <input
-          type="checkbox"
-          className="toggle__checkbox"
-          onChange={toggleTimesOfDay}
-          checked={stateToggle}
-        />
-      </div>
-    </div>
+    <AnimatePresence mode="out-in">
+      <motion.div
+        className="detail__toggle toggle"
+        variants={textVariants}
+        initial={'hidden'}
+        animate={'visible'}
+      >
+        <div className="toggle__main">
+          <div className="toggle__text-box">
+            <h4 className="toggle__text">Show weather by</h4>
+          </div>
+          <KindTime />
+        </div>
+      </motion.div>
+    </AnimatePresence>
   );
 };
+
+ToggleWeather.propTypes = {
+  isUI: PropTypes.object.isRequired,
+};
+
 const mapState = state => {
   return {
-    stateToggle: state.isUI.stateToggle,
+    isUI: state.isUI,
   };
 };
-const mapDispatch = {
-  toggleTimesOfDay: toggleTimesOfDay,
-};
-export default connect(mapState, mapDispatch)(ToggleWeather);
+
+export default connect(mapState)(ToggleWeather);

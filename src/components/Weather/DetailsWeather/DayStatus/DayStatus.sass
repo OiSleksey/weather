@@ -1,3 +1,23 @@
-.day-status__box
-    padding-top: 0.5rem
-    text-align: center
+@import '../../../../sass/variables/colors.sass'
+@import '../../../../sass/variables/mixins.sass'
+@import '../../../../sass/media-queires/media'
+
+.day-status
+    @include flex-Vcenter-Hcenter
+    background: $background-day-status__test
+    &__box
+        // padding-top: 0.5rem
+        overflow: hidden
+    &__text
+        text-align: center
+        color: $color-day-status
+        font-size: 2.1rem
+        font-weight: $font-weight-day-status
+        margin: 0
+        text-shadow: $text-shadow-day-status
+        background: $background-day-status
+        padding: .7rem 1rem
+        border-radius: .8rem
+        box-shadow: $box-shadow-day-status
+        @include respond(phone-first)
+            color: $color-day-status-phone

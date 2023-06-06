@@ -4,6 +4,7 @@ import '../PartsOfDay.sass';
 import './Part.sass';
 import { weatherPartSelected } from '../../../../redux/actions/partsOfDayWeather.actions';
 import { pastePartsSelector } from '../../../../redux/selectors/partsOfDay.selectors/datePartsOfDay.selector';
+import PropTypes from 'prop-types';
 
 const Part = ({
   dataWeather,
@@ -28,37 +29,46 @@ const Part = ({
   const temperature =
     dataWeather[1] > 0 ? '+' + dataWeather[1] : dataWeather[1];
   const weatherCode = dataWeather[2];
-  let styleActive = selectedPart[currentPart]
-    ? 'parts-of-day__part night part part_active'
-    : 'parts-of-day__part night part';
+  let styleActive = selectedPart[currentPart] ? 'part part_active' : 'part';
   if (partData.isFirstDay && partData.partNow >= currentPart + 1)
     styleActive = styleActive + ' hour_passed';
   return (
-    <div
-      className={styleActive}
-      onClick={() => {
-        setSelectedPart(currentPart);
-      }}
-    >
-      <div className=" part__gap-box">
-        <h3 className="part__gap">{namePart}</h3>
-      </div>
-      <div className=" part__times-box">
-        <h5 className="part__times">{hourPart}:00</h5>
-      </div>
-      <div className=" part__img-box">
-        <img
-          src={`./img/weather-code/weathercode-${weatherCode}.png`}
-          alt="weathercode"
-          className="part__img"
-        />
-      </div>
-      <div className=" part__temperature-box">
-        <h4 className="part__temperature">{temperature} С&deg;</h4>
+    <div className="parts-of-day__part-box part-box">
+      <div
+        className={styleActive}
+        onClick={() => {
+          setSelectedPart(currentPart);
+        }}
+      >
+        <div className=" part__gap-box">
+          <h3 className="part__gap">{namePart}</h3>
+        </div>
+        <div className=" part__times-box">
+          <h5 className="part__times">{hourPart}:00</h5>
+        </div>
+        <div className=" part__img-box">
+          <img
+            src={`./img/weather-code/weathercode-${weatherCode}.png`}
+            alt="weathercode"
+            className="part__img"
+          />
+        </div>
+        <div className=" part__temperature-box">
+          <h4 className="part__temperature">{temperature} С&deg;</h4>
+        </div>
       </div>
     </div>
   );
 };
+
+Part.propTypes = {
+  dataWeather: PropTypes.array.isRequired,
+  setSelectedPart: PropTypes.func.isRequired,
+  selectedPart: PropTypes.array.isRequired,
+  isRefHour: PropTypes.object,
+  partData: PropTypes.object.isRequired,
+};
+
 const mapDispatch = {
   setSelectedPart: weatherPartSelected,
 };
